@@ -1,0 +1,4 @@
+httpx            # download data over HTTP
+psycopg[binary]  # talk to PostgreSQL
+python-dotenv    # read the .env file
+pytest           # run tests
