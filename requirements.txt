@@ -2,3 +2,4 @@ httpx            # download data over HTTP
 psycopg[binary]  # talk to PostgreSQL
 python-dotenv    # read the .env file
 pytest           # run tests
+beautifulsoup4    # parse HTML (notebookcheck scraper)

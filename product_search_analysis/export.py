@@ -1,9 +1,14 @@
-"""Export products from PostgreSQL to data/products.csv and data/products.jsonl.
+"""Export products from PostgreSQL to new, timestamped files in data/:
+    data/products_<YYYY-MM-DD_HHMMSS>.csv
+    data/products_<YYYY-MM-DD_HHMMSS>.jsonl
+Every run creates new files; existing files are never overwritten.
 
 Run:  python -m product_search_analysis.export
 """
 import csv
 import json
+from datetime import datetime
+from pathlib import Path
 
 from product_search_analysis import db
 from product_search_analysis.config import DATA_DIR
@@ -21,16 +26,18 @@ def fetch_all(conn) -> list[dict]:
     return [dict(zip(columns, row)) for row in cursor.fetchall()]
 
 
-def write_csv(products: list[dict]) -> None:
+# Mode "x" = create a NEW file; raises FileExistsError instead of overwriting.
+
+def write_csv(products: list[dict], path: Path) -> None:
     # utf-8-sig so Excel shows special characters (™, é) correctly
-    with open(DATA_DIR / "products.csv", "w", newline="", encoding="utf-8-sig") as f:
+    with open(path, "x", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(products)
 
 
-def write_jsonl(products: list[dict]) -> None:
-    with open(DATA_DIR / "products.jsonl", "w", encoding="utf-8") as f:
+def write_jsonl(products: list[dict], path: Path) -> None:
+    with open(path, "x", encoding="utf-8") as f:
         for p in products:
             # default=float turns the database's Decimal prices into normal numbers
             f.write(json.dumps(p, ensure_ascii=False, default=float) + "\n")
@@ -38,11 +45,15 @@ def write_jsonl(products: list[dict]) -> None:
 
 def main() -> None:
     DATA_DIR.mkdir(exist_ok=True)
+    stamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")  # e.g. 2026-11-12_143005
+    csv_path = DATA_DIR / f"products_{stamp}.csv"
+    jsonl_path = DATA_DIR / f"products_{stamp}.jsonl"
+
     with db.connect() as conn:
         products = fetch_all(conn)
-    write_csv(products)
-    write_jsonl(products)
-    print(f"Exported {len(products)} products to {DATA_DIR}")
+    write_csv(products, csv_path)
+    write_jsonl(products, jsonl_path)
+    print(f"Exported {len(products)} products to new files:\n  {csv_path.name}\n  {jsonl_path.name}")
 
 
 if __name__ == "__main__":

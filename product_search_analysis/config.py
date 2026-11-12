@@ -12,7 +12,11 @@ PRODUCTS_PER_CATEGORY = int(os.getenv("PRODUCTS_PER_CATEGORY", "150"))
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 
 # --- constants ---
-CATEGORIES = ["laptop", "smartphone", "headphones", "tv", "tablet"]
+CATEGORIES = [
+    "laptop", "smartphone", "tablet", "headphones", "tv",                   # Amazon + notebookcheck
+    "smartwatch", "wearable", "audio", "mini_pc", "desktop",                # notebookcheck only
+    "monitor", "camera", "handheld", "e_reader",
+]
 MIN_DESCRIPTION_LENGTH = 20
 
 # --- folders and files ---
@@ -34,3 +38,27 @@ AMAZON_CATEGORY_RULES = {
 }
 # safety stop: never read more than this many lines of one file
 MAX_LINES_PER_FILE = 2_000_000
+
+# --- notebookcheck.net (web scraping; robots.txt allows these pages) ---
+# our category -> listing page. Order matters: a review listed under several tags
+# is kept under the FIRST one (e.g. Mac mini -> mini_pc, not desktop).
+# To add a device type: find its tag on https://www.notebookcheck.net/Topics.92152.0.html
+_TOPIC = "https://www.notebookcheck.net/Topics.92152.0.html?tag="
+NOTEBOOKCHECK_LISTINGS = {
+    "laptop": "https://www.notebookcheck.net/Laptop.315784.0.html",
+    "smartphone": "https://www.notebookcheck.net/Smartphone.305158.0.html",
+    "tablet": _TOPIC + "11",
+    "smartwatch": _TOPIC + "25",
+    "wearable": _TOPIC + "75",      # fitness trackers, smart rings
+    "audio": _TOPIC + "102",        # headphones/earbuds are detected by name -> "headphones"
+    "mini_pc": _TOPIC + "161",      # incl. Mac mini
+    "desktop": _TOPIC + "20",
+    "monitor": _TOPIC + "92",
+    "camera": _TOPIC + "175",
+    "handheld": _TOPIC + "265",     # gaming handhelds
+    "e_reader": _TOPIC + "254",     # E-Ink
+}
+NOTEBOOKCHECK_DELAY_SECONDS = 2.0                          # wait between requests (be polite)
+NOTEBOOKCHECK_MAX_LISTING_PAGES = 40                       # safety stop per listing (50 articles/page)
+NOTEBOOKCHECK_CACHE_DIR = DATA_DIR / "raw" / "notebookcheck"  # downloaded review pages (not committed)
+USER_AGENT = "ShopBot-ResearchBot/0.1 (academic information-retrieval project)"
