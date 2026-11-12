@@ -62,3 +62,22 @@ NOTEBOOKCHECK_DELAY_SECONDS = 2.0                          # wait between reques
 NOTEBOOKCHECK_MAX_LISTING_PAGES = 40                       # safety stop per listing (50 articles/page)
 NOTEBOOKCHECK_CACHE_DIR = DATA_DIR / "raw" / "notebookcheck"  # downloaded review pages (not committed)
 USER_AGENT = "ShopBot-ResearchBot/0.1 (academic information-retrieval project)"
+
+# --- Kaggle "Amazon Sales Dataset" (karkavelrajaj, Amazon India, CC BY-NC-SA 4.0) ---
+# Download:  kaggle datasets download -d karkavelrajaj/amazon-sales-dataset -p data/raw/kaggle --unzip
+KAGGLE_AMAZON_IN_FILE = DATA_DIR / "raw" / "kaggle" / "amazon.csv"
+# Amazon.in category path prefix -> our category (rows that match nothing are skipped)
+KAGGLE_AMAZON_IN_CATEGORY_RULES = [
+    ("Electronics|Mobiles&Accessories|Smartphones&BasicMobiles|Smartphones", "smartphone"),
+    ("Electronics|WearableTechnology|SmartWatches", "smartwatch"),
+    ("Electronics|HomeTheater,TV&Video|Televisions", "tv"),
+    ("Electronics|Headphones,Earbuds&Accessories|Headphones", "headphones"),
+    ("Electronics|HomeAudio|Speakers", "audio"),
+    ("Computers&Accessories|Accessories&Peripherals|Audio&VideoAccessories|PCSpeakers", "audio"),
+    ("Computers&Accessories|Laptops", "laptop"),
+    ("Computers&Accessories|Tablets", "tablet"),
+    ("Computers&Accessories|Monitors", "monitor"),
+]
+# Prices are in Indian rupees. The data was scraped in January 2023, when $1 was about 82.8 INR.
+INR_PER_USD = 82.8
+MAX_REVIEW_TEXT_CHARS = 1500  # each row holds ~8 reviews; keep an excerpt

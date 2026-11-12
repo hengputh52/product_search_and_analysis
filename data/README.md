@@ -42,9 +42,14 @@ collaborator can browse the data without database access.
 | `image_url` | text | Main product image |
 | `source` | text | Where the product came from, e.g. `amazon` |
 
-## Source and license
+## Sources and licenses
 
-Products come from **Amazon Reviews 2023** (McAuley Lab, UC San Diego), which
-is released for **research use only**. Keep this repository **private**, and
-don't redistribute the data. Cite: *Hou et al., "Bridging Language and Items for
-Retrieval and Recommendation", 2024.*
+The `source` column says where each product came from:
+
+| `source` | Dataset | License / terms |
+|---|---|---|
+| `amazon` | **Amazon Reviews 2023** (McAuley Lab, UC San Diego) | Research use only. Cite: *Hou et al., "Bridging Language and Items for Retrieval and Recommendation", 2024.* |
+| `kaggle_amazon_in` | **Amazon Sales Dataset** by karkavelrajaj on Kaggle (Amazon India, Jan 2023) | **CC BY-NC-SA 4.0**: non-commercial, credit the author, share derived data under the same license. Prices were converted from INR at 82.8 INR = 1 USD; originals are in `specs["Price (INR)"]`. |
+
+Both datasets were originally collected from Amazon, so keep this repository
+**private** and don't redistribute the data.

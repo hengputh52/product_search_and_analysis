@@ -4,11 +4,11 @@ import logging
 
 from product_search_analysis import config, db
 from product_search_analysis.cleaning import clean_product, deduplicate, is_valid
-from product_search_analysis.scraping import notebookcheck
+from product_search_analysis.scraping import kaggle_amazon_in, notebookcheck
 from product_search_analysis.scraping.amazon import amazon
 
 # --source name -> module with fetch_products(per_category)
-SOURCES = {"amazon": amazon, "notebookcheck": notebookcheck}
+SOURCES = {"amazon": amazon, "notebookcheck": notebookcheck, "kaggle_amazon_in": kaggle_amazon_in}
 
 
 def run(source: str, per_category: int, dry_run: bool) -> dict:
