@@ -4,21 +4,23 @@ This folder holds the **exported product dataset**: a snapshot of the
 `products` table in our PostgreSQL (Neon) database, saved as files so every
 collaborator can browse the data without database access.
 
-> These files are **generated, so don't edit them by hand**. To refresh them, run:
+> These files are **generated, so don't edit them by hand**. Every export creates a **new** pair of
+> files named with the date and time (e.g. `products_2026-11-12_143005.csv`). Old exports are never
+> overwritten. **The newest export is the last file when sorted by name.** To make a new one, run:
 >
 > ```bash
 > python -m product_search_analysis.collect   # collect products into the database
-> python -m product_search_analysis.export    # rewrite the files in this folder
+> python -m product_search_analysis.export    # write a new timestamped export here
 > ```
 
 ## Files
 
 | File | What's inside | Open with |
 |---|---|---|
-| `products.csv` | One row per product, main columns only | GitHub (renders as a table), Excel, VS Code |
-| `products.jsonl` | One product per line as JSON, with **every** field | Code (`json.loads` per line), pandas (`pd.read_json(path, lines=True)`) |
+| `products_<date_time>.csv` | One row per product, main columns only | GitHub (renders as a table), Excel, VS Code |
+| `products_<date_time>.jsonl` | One product per line as JSON, with **every** field | Code (`json.loads` per line), pandas (`pd.read_json(path, lines=True)`) |
 
-### `products.csv` columns
+### CSV columns
 
 | Column | Example | Meaning |
 |---|---|---|
@@ -30,7 +32,7 @@ collaborator can browse the data without database access.
 | `rating` | `4.6` | Average customer rating (1–5) |
 | `source_url` | `https://www.amazon.com/dp/…` | Product page |
 
-### Extra fields in `products.jsonl`
+### Extra fields in the JSONL file
 
 | Field | Type | Meaning |
 |---|---|---|

@@ -16,8 +16,8 @@ product_search_and_analysis/
 ├── db/schema.sql           ← Step 5
 ├── data/                   ← already exists — Step 8 writes the exported files here
 │   ├── README.md           ←   explains the files for collaborators
-│   ├── products.csv        ←   Step 8 (generated)
-│   └── products.jsonl      ←   Step 8 (generated)
+│   ├── products_<date_time>.csv    ←   Step 8 (new file every export)
+│   └── products_<date_time>.jsonl  ←   Step 8 (new file every export)
 ├── product_search_analysis/ ← the Python package
 │   ├── __init__.py         ← Step 2 (empty file)
 │   ├── config.py           ← Step 2  settings
@@ -38,7 +38,7 @@ collect.py  ──1──►  scraping/amazon.py   (download raw products)
             ──2──►  cleaning.py         (clean, drop bad rows, remove duplicates)
             ──3──►  db.py               (save to Neon PostgreSQL)
 
-export.py   ──────►  db.py ──► data/products.csv + data/products.jsonl   (for collaborators)
+export.py   ──────►  db.py ──► data/products_<date_time>.csv + .jsonl   (new files each run)
 
   every file reads settings (paths, categories, DATABASE_URL) from config.py
 ```
@@ -559,18 +559,30 @@ The `data/` folder already exists (with a `README.md` describing the files),
 and `config.DATA_DIR` from Step 2 points to it — so `export.py` just imports
 that path instead of building its own.
 
+Every export creates **new** files named with the date and time, e.g.
+`products_2026-11-12_143005.csv` — old exports are **never overwritten**
+(the files are opened in mode `"x"`, which refuses to replace an existing file).
+
 | File | Contents | Good for |
 |---|---|---|
-| `data/products.csv` | one row per product, main columns only | GitHub shows it as a searchable table; opens in Excel |
-| `data/products.jsonl` | every field, incl. `specs` and `features` | full data for code / later stages |
+| `data/products_<date_time>.csv` | one row per product, main columns only | GitHub shows it as a searchable table; opens in Excel |
+| `data/products_<date_time>.jsonl` | every field, incl. `specs` and `features` | full data for code / later stages |
 
 Create **`product_search_analysis/export.py`**:
 
 ```python
 # product_search_analysis/export.py
-"""Export products from PostgreSQL to data/products.csv and data/products.jsonl."""
+"""Export products from PostgreSQL to new, timestamped files in data/:
+    data/products_<YYYY-MM-DD_HHMMSS>.csv
+    data/products_<YYYY-MM-DD_HHMMSS>.jsonl
+Every run creates new files; existing files are never overwritten.
+
+Run:  python -m product_search_analysis.export
+"""
 import csv
 import json
+from datetime import datetime
+from pathlib import Path
 
 from product_search_analysis import db
 from product_search_analysis.config import DATA_DIR
@@ -588,16 +600,18 @@ def fetch_all(conn) -> list[dict]:
     return [dict(zip(columns, row)) for row in cursor.fetchall()]
 
 
-def write_csv(products: list[dict]) -> None:
+# Mode "x" = create a NEW file; raises FileExistsError instead of overwriting.
+
+def write_csv(products: list[dict], path: Path) -> None:
     # utf-8-sig so Excel shows special characters (™, é) correctly
-    with open(DATA_DIR / "products.csv", "w", newline="", encoding="utf-8-sig") as f:
+    with open(path, "x", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(products)
 
 
-def write_jsonl(products: list[dict]) -> None:
-    with open(DATA_DIR / "products.jsonl", "w", encoding="utf-8") as f:
+def write_jsonl(products: list[dict], path: Path) -> None:
+    with open(path, "x", encoding="utf-8") as f:
         for p in products:
             # default=float turns the database's Decimal prices into normal numbers
             f.write(json.dumps(p, ensure_ascii=False, default=float) + "\n")
@@ -605,11 +619,15 @@ def write_jsonl(products: list[dict]) -> None:
 
 def main() -> None:
     DATA_DIR.mkdir(exist_ok=True)
+    stamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")  # e.g. 2026-11-12_143005
+    csv_path = DATA_DIR / f"products_{stamp}.csv"
+    jsonl_path = DATA_DIR / f"products_{stamp}.jsonl"
+
     with db.connect() as conn:
         products = fetch_all(conn)
-    write_csv(products)
-    write_jsonl(products)
-    print(f"Exported {len(products)} products to {DATA_DIR}")
+    write_csv(products, csv_path)
+    write_jsonl(products, jsonl_path)
+    print(f"Exported {len(products)} products to new files:\n  {csv_path.name}\n  {jsonl_path.name}")
 
 
 if __name__ == "__main__":
@@ -622,10 +640,20 @@ if __name__ == "__main__":
 python -m product_search_analysis.export
 ```
 
-Expected: `Exported 7xx products to .../data`. Open `data/products.csv` in VS Code.
+Expected:
 
-**Share it:** commit the `data/` folder and push. Re-run the export after every
-new collection so the files stay up to date.
+```text
+Exported 7xx products to new files:
+  products_2026-11-12_143005.csv
+  products_2026-11-12_143005.jsonl
+```
+
+Run it again and you get a second pair of files — the first pair is untouched.
+The newest export is the last file when sorted by name.
+
+**Share it:** commit the `data/` folder and push. Run the export after every
+new collection; each run adds a new snapshot. Delete old snapshots you no
+longer need (git history still keeps them).
 
 ```bash
 git add data/ && git commit -m "Update product data export" && git push
