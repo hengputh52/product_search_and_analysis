@@ -25,10 +25,18 @@ from product_search_analysis.config import (
 )
 
 custom_headers = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
-    'Accept-Language': 'en-US,en;q=0.9',
+    # Firefox fingerprint: a different browser identity from Chrome. Firefox does NOT send
+    # the sec-ch-ua client hints, so they are left out on purpose - adding them here would be
+    # an inconsistent mix (Firefox UA + Chrome-only headers) that looks like a bot.
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0',
+    'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate',  # no 'br': requests can't decode it without the brotli package
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'Sec-Fetch-Dest': 'document',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Site': 'cross-site',
+    'Sec-Fetch-User': '?1',
+    'Upgrade-Insecure-Requests': '1',
     'Referer': 'https://www.google.com/'
 }
 

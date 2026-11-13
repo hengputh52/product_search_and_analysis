@@ -16,6 +16,7 @@ CATEGORIES = [
     "laptop", "smartphone", "tablet", "headphones", "tv",                   # Amazon + notebookcheck
     "smartwatch", "wearable", "audio", "mini_pc", "desktop",                # notebookcheck only
     "monitor", "camera", "handheld", "e_reader",
+    "powerbank", "speaker",                                                 # amazon_web live scraping
 ]
 MIN_DESCRIPTION_LENGTH = 20
 
@@ -43,7 +44,8 @@ MAX_LINES_PER_FILE = 2_000_000
 # our category -> search results URL. Add more lines to scrape more categories.
 AMAZON_WEB_SEARCHES = {
     # "smartphone": "https://www.amazon.com/s?k=cell+phones&rh=n%3A7072561011",
-    "powerbank": "https://www.amazon.com/s?k=power+bank",
+    # "powerbank": "https://www.amazon.com/s?k=power+bank",
+    "speaker": "https://www.amazon.com/s?k=speakers",
 }
 AMAZON_WEB_MAX_PAGES = 20        # search result pages per category
 AMAZON_WEB_DELAY_SECONDS = 2.0   # wait before every request
