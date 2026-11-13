@@ -18,7 +18,10 @@ collaborator can browse the data without database access.
 | File | What's inside | Open with |
 |---|---|---|
 | `products_<date_time>.csv` | One row per product, main columns only | GitHub (renders as a table), Excel, VS Code |
+| `products_<date_time>.json` | One JSON array with **every** field | Code (`json.load`), pandas (`pd.read_json(path)`), any JSON viewer |
 | `products_<date_time>.jsonl` | One product per line as JSON, with **every** field | Code (`json.loads` per line), pandas (`pd.read_json(path, lines=True)`) |
+
+Exports made with `--source <name>` contain only that source and are named `products_<name>_<date_time>.*`.
 
 ### CSV columns
 
@@ -28,11 +31,11 @@ collaborator can browse the data without database access.
 | `category` | `headphones` | `laptop`, `smartphone`, `headphones`, `tv` or `tablet` |
 | `brand` | `Sony` | Brand or manufacturer |
 | `title` | `Sony WH-1000XM5 Wireless…` | Product name |
-| `price` | `399.99` | Price in USD at collection time |
+| `price` | `399.99` | Price in USD at collection time. Other currencies are converted (INR, riel: see Sources; notebookcheck euros at 1 EUR = 1.1081 USD, ECB rate of 2026-11-12, original in `specs["Price"]`). Empty = no price found |
 | `rating` | `4.6` | Average customer rating (1–5) |
 | `source_url` | `https://www.amazon.com/dp/…` | Product page |
 
-### Extra fields in the JSONL file
+### Extra fields in the JSON / JSONL files
 
 | Field | Type | Meaning |
 |---|---|---|
@@ -50,6 +53,7 @@ The `source` column says where each product came from:
 |---|---|---|
 | `amazon` | **Amazon Reviews 2023** (McAuley Lab, UC San Diego) | Research use only. Cite: *Hou et al., "Bridging Language and Items for Retrieval and Recommendation", 2024.* |
 | `kaggle_amazon_in` | **Amazon Sales Dataset** by karkavelrajaj on Kaggle (Amazon India, Jan 2023) | **CC BY-NC-SA 4.0**: non-commercial, credit the author, share derived data under the same license. Prices were converted from INR at 82.8 INR = 1 USD; originals are in `specs["Price (INR)"]`. |
+| `amazon_web` | Scraped live from amazon.com search results (`scraping/amazon/amazon_scraping.py`) | Subject to Amazon's Conditions of Use. `price` is USD. Prices Amazon showed in riel were converted at `config.KHR_PER_USD` (4,000 KHR = 1 USD, approximate); other currencies are left empty. Requests ask Amazon for USD prices with its `i18n-prefs=USD` cookie. The shown text is always in `specs["Price (as shown)"]`. |
 
-Both datasets were originally collected from Amazon, so keep this repository
+All the sources above come from Amazon, so keep this repository
 **private** and don't redistribute the data.

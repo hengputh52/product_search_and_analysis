@@ -1,5 +1,6 @@
 import json
 
+from product_search_analysis.config import USD_PER_EUR
 from product_search_analysis.scraping.notebookcheck import listing_page_url
 from product_search_analysis.scraping.notebookcheck.parser import (
     find_review_links,
@@ -7,6 +8,7 @@ from product_search_analysis.scraping.notebookcheck.parser import (
     has_articles,
     parse_price,
     parse_review_page,
+    price_usd,
 )
 
 LISTING_HTML = """
@@ -56,6 +58,15 @@ def test_guess_category_refines_by_name_and_headline():
 def test_has_articles_detects_the_end_of_a_listing():
     assert has_articles(LISTING_HTML) is True
     assert has_articles('<div class="introa_content"></div>') is False
+
+
+def test_price_usd_converts_euros():
+    assert price_usd("$1,299") == 1299.0
+    assert price_usd("1000 Euro") == round(1000 * USD_PER_EUR, 2)
+    assert price_usd("1.299 EUR") == round(1299 * USD_PER_EUR, 2)  # European thousands separator
+    assert price_usd("0 360") is None
+    assert price_usd("3 Euro") is None  # typo in the source data, not a real price
+    assert price_usd("") is None
 
 
 def test_listing_page_url():

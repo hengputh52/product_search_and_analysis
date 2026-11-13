@@ -4,6 +4,8 @@ import re
 
 from bs4 import BeautifulSoup
 
+from product_search_analysis.config import USD_PER_EUR
+
 # A review URL: ".../Some-Title-review.1445346.0.html" ("review" but not "preview")
 REVIEW_URL_RE = re.compile(r"^https://www\.notebookcheck\.net/[^?#]*(?<!p)review[^?#]*\.\d+\.0\.html$", re.IGNORECASE)
 ARTICLE_URL_RE = re.compile(r"^https://www\.notebookcheck\.net/[^?#]+\.\d+\.0\.html$")
@@ -76,6 +78,14 @@ def parse_price(text: str) -> tuple[float | None, str | None]:
     return amount, currency
 
 
+def price_usd(text: str) -> float | None:
+    """'$1,299' -> 1299.0, '1200 Euro' -> 1329.72 (converted with USD_PER_EUR), '' -> None"""
+    amount, currency = parse_price(text)
+    if amount is None or amount < 5:
+        return None  # no price, or junk like '0 360' / '3 Euro' for a Mac Studio
+    return amount if currency == "USD" else round(amount * USD_PER_EUR, 2)
+
+
 def guess_category(text: str, listing_category: str) -> str:
     """Refine the listing's category using the product name + review headline.
 
@@ -136,7 +146,6 @@ def parse_review_page(html: str, url: str, listing_category: str) -> dict | None
         specs["Device Class"] = device_class
     if score is not None:
         specs["Notebookcheck Rating"] = f"{score}%"
-    price, currency = parse_price(specs.get("Price", ""))
     brand = product.get("brand") or ""
     image = soup.find("meta", property="og:image")
     name = product.get("name", "")
@@ -150,7 +159,7 @@ def parse_review_page(html: str, url: str, listing_category: str) -> dict | None
         "description": product.get("description") or review.get("reviewBody", ""),
         "brand": brand.get("name", "") if isinstance(brand, dict) else brand,
         "category": category,
-        "price": price if currency == "USD" else None,  # EUR stays in specs["Price"]
+        "price": price_usd(specs.get("Price", "")),  # always USD; original text stays in specs["Price"]
         "specs": specs,
         "features": [],
         "image_url": image["content"] if image else "",

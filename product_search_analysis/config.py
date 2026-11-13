@@ -39,6 +39,21 @@ AMAZON_CATEGORY_RULES = {
 # safety stop: never read more than this many lines of one file
 MAX_LINES_PER_FILE = 2_000_000
 
+# --- amazon.com live scraping (scraping/amazon/amazon_scraping.py, source "amazon_web") ---
+# our category -> search results URL. Add more lines to scrape more categories.
+AMAZON_WEB_SEARCHES = {
+    # "smartphone": "https://www.amazon.com/s?k=cell+phones&rh=n%3A7072561011",
+    "powerbank": "https://www.amazon.com/s?k=power+bank",
+}
+AMAZON_WEB_MAX_PAGES = 20        # search result pages per category
+AMAZON_WEB_DELAY_SECONDS = 2.0   # wait before every request
+# Amazon picks the display currency from your location (riel in Cambodia). These cookies are
+# Amazon's own site preferences: show prices in US dollars and the page in US English.
+AMAZON_WEB_COOKIES = {"i18n-prefs": "USD", "lc-main": "en_US"}
+# Fallback if a page still shows riel. Approximate rate, change if needed.
+# The original text is kept in specs["Price (as shown)"].
+KHR_PER_USD = 4000.0
+
 # --- notebookcheck.net (web scraping; robots.txt allows these pages) ---
 # our category -> listing page. Order matters: a review listed under several tags
 # is kept under the FIRST one (e.g. Mac mini -> mini_pc, not desktop).
@@ -62,6 +77,9 @@ NOTEBOOKCHECK_DELAY_SECONDS = 2.0                          # wait between reques
 NOTEBOOKCHECK_MAX_LISTING_PAGES = 40                       # safety stop per listing (50 articles/page)
 NOTEBOOKCHECK_CACHE_DIR = DATA_DIR / "raw" / "notebookcheck"  # downloaded review pages (not committed)
 USER_AGENT = "ShopBot-ResearchBot/0.1 (academic information-retrieval project)"
+# Many reviews list a price in euros. ECB reference rate on 2026-11-12: 1 EUR = 1.1081 USD.
+# The original text is kept in specs["Price"].
+USD_PER_EUR = 1.1081
 
 # --- Kaggle "Amazon Sales Dataset" (karkavelrajaj, Amazon India, CC BY-NC-SA 4.0) ---
 # Download:  kaggle datasets download -d karkavelrajaj/amazon-sales-dataset -p data/raw/kaggle --unzip

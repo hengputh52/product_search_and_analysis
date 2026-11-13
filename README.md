@@ -28,10 +28,15 @@ cp .env.example .env               # then fill in DATABASE_URL
 # Collect: download → clean → save to the database
 python -m product_search_analysis.collect --source amazon
 python -m product_search_analysis.collect --source notebookcheck --per-category 50
+python -m product_search_analysis.collect --source amazon_web --per-category 20   # live amazon.com scraping
 python -m product_search_analysis.collect --dry-run          # download + clean only, no DB writes
 
-# Export the database to data/products_<date_time>.csv and .jsonl (a new pair every run)
+# Export the database to data/products_<date_time>.csv, .json and .jsonl (new files every run)
 python -m product_search_analysis.export
+python -m product_search_analysis.export --source amazon_web # only one source
+
+# Recalculate USD prices in the database after changing a rate in config.py (USD_PER_EUR, KHR_PER_USD)
+python -m product_search_analysis.convert_prices --dry-run   # drop --dry-run to apply
 
 # Run the tests
 pytest
@@ -47,9 +52,9 @@ product_search_analysis/
 ├── collect.py         pipeline entry point (fetch → clean → save)
 ├── cleaning.py        text normalization, validation, de-duplication
 ├── db.py              PostgreSQL connection and inserts
-├── export.py          database → timestamped CSV/JSONL in data/
+├── export.py          database → timestamped CSV/JSON/JSONL in data/
 └── scraping/
-    ├── amazon/        Amazon Reviews 2023 reader
+    ├── amazon/        Amazon Reviews 2023 reader (amazon.py) + amazon.com scraper (amazon_scraping.py)
     └── notebookcheck/ crawler (polite, cached) + HTML parser
 db/schema.sql          products table definition
 data/                  exported datasets (see data/README.md)
