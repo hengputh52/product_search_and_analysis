@@ -24,8 +24,10 @@ CATEGORIES = [
 MIN_DESCRIPTION_LENGTH = 20
 
 
-SCHEMA_FILE = ROOT / "db" / "schema.sql" 
-DATA_DIR = ROOT / "data"                
+SCHEMA_FILE = ROOT / "db" / "schema.sql"
+DATA_DIR = ROOT / "data"
+INDEX_DIR = DATA_DIR / "index"            # saved search index (gitignored, rebuilt from the DB)
+INDEX_FILE = INDEX_DIR / "inverted_index.pkl"
 
 
 AMAZON_BASE_URL = (

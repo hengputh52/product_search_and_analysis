@@ -6,3 +6,4 @@ beautifulsoup4    # parse HTML (notebookcheck scraper)
 requests          # download pages (amazon.com scraper)
 lxml              # fast HTML parser for BeautifulSoup
 playwright        # headless browser for alibaba.com (then: python -m playwright install chromium)
+snowballstemmer   # English stemming for the search index (speakers -> speaker)
