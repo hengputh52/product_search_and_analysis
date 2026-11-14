@@ -13,23 +13,26 @@ LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 
 # --- constants ---
 CATEGORIES = [
-    "laptop", "smartphone", "tablet", "headphones", "tv",                   # Amazon + notebookcheck
-    "smartwatch", "wearable", "audio", "mini_pc", "desktop",                # notebookcheck only
+    "laptop", "smartphone", "tablet", "headphones", "tv",                   
+    "smartwatch", "wearable", "audio", "mini_pc", "desktop",                
     "monitor", "camera", "handheld", "e_reader",
-    "powerbank", "speaker",                                                 # amazon_web live scraping
+    "powerbank", "speaker", "keyboard", "charger",                          
+    "computer", "gaming" , "apple", "computer-accessories", "computer-components" , "printer",
+    "tablet-case", "phone-case", "earphones", "earbuds", "adapter-cable", "watch-straps",
+    "wireless-charger", "watch-straps"                                          
 ]
 MIN_DESCRIPTION_LENGTH = 20
 
-# --- folders and files ---
-SCHEMA_FILE = ROOT / "db" / "schema.sql"  # table definition
-DATA_DIR = ROOT / "data"                  # exported products for collaborators
 
-# --- Amazon Reviews 2023 dataset (Hugging Face, free, no key) ---
+SCHEMA_FILE = ROOT / "db" / "schema.sql" 
+DATA_DIR = ROOT / "data"                
+
+
 AMAZON_BASE_URL = (
     "https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023"
     "/resolve/main/raw/meta_categories"
 )
-# our category -> (file to read, Amazon category path it must start with)
+
 AMAZON_CATEGORY_RULES = {
     "laptop": ("meta_Electronics.jsonl", "Electronics > Computers & Accessories > Computers & Tablets > Laptops"),
     "tablet": ("meta_Electronics.jsonl", "Electronics > Computers & Accessories > Computers & Tablets > Tablets"),
@@ -37,56 +40,102 @@ AMAZON_CATEGORY_RULES = {
     "headphones": ("meta_Electronics.jsonl", "Electronics > Headphones, Earbuds & Accessories > Headphones & Earbuds"),
     "smartphone": ("meta_Cell_Phones_and_Accessories.jsonl", "Cell Phones & Accessories > Cell Phones"),
 }
-# safety stop: never read more than this many lines of one file
+
 MAX_LINES_PER_FILE = 2_000_000
 
-# --- amazon.com live scraping (scraping/amazon/amazon_scraping.py, source "amazon_web") ---
-# our category -> search results URL. Add more lines to scrape more categories.
+
 AMAZON_WEB_SEARCHES = {
     # "smartphone": "https://www.amazon.com/s?k=cell+phones&rh=n%3A7072561011",
     # "powerbank": "https://www.amazon.com/s?k=power+bank",
-    "speaker": "https://www.amazon.com/s?k=speakers",
+    # "speaker": "https://www.amazon.com/s?k=speakers",
+    "keyboard": "https://www.amazon.com/s?k=keyboard",
+
 }
-AMAZON_WEB_MAX_PAGES = 20        # search result pages per category
-AMAZON_WEB_DELAY_SECONDS = 2.0   # wait before every request
-# Amazon picks the display currency from your location (riel in Cambodia). These cookies are
-# Amazon's own site preferences: show prices in US dollars and the page in US English.
+AMAZON_WEB_MAX_PAGES = 20       
+AMAZON_WEB_DELAY_SECONDS = 2.0   
+
 AMAZON_WEB_COOKIES = {"i18n-prefs": "USD", "lc-main": "en_US"}
-# Fallback if a page still shows riel. Approximate rate, change if needed.
-# The original text is kept in specs["Price (as shown)"].
 KHR_PER_USD = 4000.0
 
-# --- notebookcheck.net (web scraping; robots.txt allows these pages) ---
-# our category -> listing page. Order matters: a review listed under several tags
-# is kept under the FIRST one (e.g. Mac mini -> mini_pc, not desktop).
-# To add a device type: find its tag on https://www.notebookcheck.net/Topics.92152.0.html
+
+ALIBABA_SEARCHES = {
+    # "keyboard": (
+    #     "https://www.alibaba.com/search/page?spm=a2700.product_home_fy25.home_login_first_screen_fy23_pc_search_bar.keydown__Enter&SearchScene=proSearch&SearchText=keyboard&pro=true&from=pcHomeContent"
+    # ),
+    # "powerbank": ("https://www.alibaba.com/search/page?spm=a2700.prosearch.the-new-header_fy23_pc_search_bar.keydown__Enter&SearchScene=proSearch&SearchText=powerbank&pro=true&from=pcHomeContent")
+    "charger": ("https://www.alibaba.com/search/page?spm=a2700.prosearch.the-new-header_fy23_pc_search_bar.keydown__Enter&SearchScene=proSearch&SearchText=charger&pro=true&from=pcHomeContent")
+}
+
+ALIBABA_MAX_PAGES = 10         
+ALIBABA_MAX_SCROLLS = 10        
+ALIBABA_DELAY_SECONDS = 3.0     
+
+
+
+PTC_COMPUTER_LISTINGS = {
+    # "computer": "https://ptc-computer.com.kh/parent_category/computer",
+    # "gaming": "https://ptc-computer.com.kh/parent_category/computer---gaming-xk0jn",
+    # "apple": "https://ptc-computer.com.kh/parent_category/apple-wknsu",
+    # "monitor": "https://ptc-computer.com.kh/parent_category/monitor",
+    # "computer-accessories": "https://ptc-computer.com.kh/parent_category/computer-accessories",
+    # "computer-components": "https://ptc-computer.com.kh/parent_category/computer-components",
+    "printer": "https://ptc-computer.com.kh/parent_category/printer-and-cartdridges",
+}
+PTC_COMPUTER_MAX_PAGES = 50
+PTC_COMPUTER_DELAY_SECONDS = 2.0
+
+
+ANGKOR_MEAS_LISTINGS = {
+    # "smartphone": "https://angkormeas.com/cate/smartphone/",
+    # "tablet": "https://angkormeas.com/cate/tablet/",
+    "smartwatch": "https://angkormeas.com/cate/watch/",
+    "computer": "https://angkormeas.com/cate/computer/",
+    "tablet-case": "https://angkormeas.com/cate/accessories/ipad-tables-case/",
+    "phone-case": "https://angkormeas.com/cate/accessories/phone-case/",
+    "earphones": "https://angkormeas.com/cate/accessories/earphones/",
+    "headphones": "https://angkormeas.com/cate/accessories/headphone/",
+    "speaker": "https://angkormeas.com/cate/accessories/speakers/",
+    "earbuds": "https://angkormeas.com/cate/accessories/earbuds/",
+    "adapter-cable": "https://angkormeas.com/cate/accessories/adapter-cable/",
+    "watch-straps": "https://angkormeas.com/cate/accessories/watch-straps/",
+    "powerbank": "https://angkormeas.com/cate/accessories/power-bankbatery/",
+    "wireless-charger": "https://angkormeas.com/cate/accessories/wireless-charger/",
+}
+ANGKOR_MEAS_MAX_PAGES = 50
+ANGKOR_MEAS_DELAY_SECONDS = 2.0
+
+
+SUNSIMEXCO_LISTINGS = {
+    "tv": "https://sunsimexco.com.kh/products?category=tv-projector",
+    "speaker": "https://sunsimexco.com.kh/products?category=home-audio-video",
+}
+SUNSIMEXCO_MAX_PAGES = 50           
+SUNSIMEXCO_DELAY_SECONDS = 2.0       
+
+
 _TOPIC = "https://www.notebookcheck.net/Topics.92152.0.html?tag="
 NOTEBOOKCHECK_LISTINGS = {
     "laptop": "https://www.notebookcheck.net/Laptop.315784.0.html",
     "smartphone": "https://www.notebookcheck.net/Smartphone.305158.0.html",
     "tablet": _TOPIC + "11",
     "smartwatch": _TOPIC + "25",
-    "wearable": _TOPIC + "75",      # fitness trackers, smart rings
-    "audio": _TOPIC + "102",        # headphones/earbuds are detected by name -> "headphones"
-    "mini_pc": _TOPIC + "161",      # incl. Mac mini
+    "wearable": _TOPIC + "75",      
+    "audio": _TOPIC + "102",        
+    "mini_pc": _TOPIC + "161",      
     "desktop": _TOPIC + "20",
     "monitor": _TOPIC + "92",
     "camera": _TOPIC + "175",
-    "handheld": _TOPIC + "265",     # gaming handhelds
-    "e_reader": _TOPIC + "254",     # E-Ink
+    "handheld": _TOPIC + "265",     
+    "e_reader": _TOPIC + "254",     
 }
-NOTEBOOKCHECK_DELAY_SECONDS = 2.0                          # wait between requests (be polite)
-NOTEBOOKCHECK_MAX_LISTING_PAGES = 40                       # safety stop per listing (50 articles/page)
-NOTEBOOKCHECK_CACHE_DIR = DATA_DIR / "raw" / "notebookcheck"  # downloaded review pages (not committed)
+NOTEBOOKCHECK_DELAY_SECONDS = 2.0                          
+NOTEBOOKCHECK_MAX_LISTING_PAGES = 40                       
+NOTEBOOKCHECK_CACHE_DIR = DATA_DIR / "raw" / "notebookcheck"  
 USER_AGENT = "ShopBot-ResearchBot/0.1 (academic information-retrieval project)"
-# Many reviews list a price in euros. ECB reference rate on 2026-11-12: 1 EUR = 1.1081 USD.
-# The original text is kept in specs["Price"].
 USD_PER_EUR = 1.1081
 
-# --- Kaggle "Amazon Sales Dataset" (karkavelrajaj, Amazon India, CC BY-NC-SA 4.0) ---
-# Download:  kaggle datasets download -d karkavelrajaj/amazon-sales-dataset -p data/raw/kaggle --unzip
+
 KAGGLE_AMAZON_IN_FILE = DATA_DIR / "raw" / "kaggle" / "amazon.csv"
-# Amazon.in category path prefix -> our category (rows that match nothing are skipped)
 KAGGLE_AMAZON_IN_CATEGORY_RULES = [
     ("Electronics|Mobiles&Accessories|Smartphones&BasicMobiles|Smartphones", "smartphone"),
     ("Electronics|WearableTechnology|SmartWatches", "smartwatch"),
@@ -98,6 +147,6 @@ KAGGLE_AMAZON_IN_CATEGORY_RULES = [
     ("Computers&Accessories|Tablets", "tablet"),
     ("Computers&Accessories|Monitors", "monitor"),
 ]
-# Prices are in Indian rupees. The data was scraped in January 2023, when $1 was about 82.8 INR.
+
 INR_PER_USD = 82.8
-MAX_REVIEW_TEXT_CHARS = 1500  # each row holds ~8 reviews; keep an excerpt
+MAX_REVIEW_TEXT_CHARS = 1500  

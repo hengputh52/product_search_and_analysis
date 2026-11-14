@@ -1,6 +1,6 @@
 """Scrape amazon.com search results, save them to the database and export them.
 
-Run from the project folder (scrape -> save to DB -> export CSV/JSON/JSONL):
+Run from the project folder (scrape -> save to DB -> export CSV/JSONL):
     python -m product_search_analysis.scraping.amazon.amazon_scraping                      # 20 products (~1 page)
     python -m product_search_analysis.scraping.amazon.amazon_scraping --per-category 200   # ~10 pages
 Or step by step with the normal pipeline:
@@ -20,6 +20,7 @@ from product_search_analysis.config import (
     AMAZON_WEB_DELAY_SECONDS,
     AMAZON_WEB_MAX_PAGES,
     AMAZON_WEB_SEARCHES,
+    CATEGORIES,
     DATA_DIR,
     KHR_PER_USD,
 )
@@ -216,6 +217,9 @@ def to_product(info, category):
 
 def fetch_products(per_category):
     """Used by collect.py: scrape every search in config.AMAZON_WEB_SEARCHES."""
+    unknown = [c for c in AMAZON_WEB_SEARCHES if c not in CATEGORIES]
+    if unknown:  # check before scraping: cleaning would drop all of these products as invalid
+        raise ValueError(f"Add {unknown} to CATEGORIES in config.py before scraping them")
     products = []
     for category, search_url in AMAZON_WEB_SEARCHES.items():
         try:
@@ -253,7 +257,9 @@ def main():
     if summary["inserted"] == 0:
         print("Nothing new was saved, so no export was made.")
         return
-    export.export(source="amazon_web")  # DB -> data/products_amazon_web_<date_time>.csv/.json/.jsonl
+    # only the categories scraped now (config.AMAZON_WEB_SEARCHES), not older runs' categories
+    # DB -> data/products_amazon_web_<categories>_<date_time>.csv/.jsonl
+    export.export(source="amazon_web", categories=list(AMAZON_WEB_SEARCHES))
 
 
 if __name__ == '__main__':

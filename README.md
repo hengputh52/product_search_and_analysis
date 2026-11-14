@@ -29,9 +29,13 @@ cp .env.example .env               # then fill in DATABASE_URL
 python -m product_search_analysis.collect --source amazon
 python -m product_search_analysis.collect --source notebookcheck --per-category 50
 python -m product_search_analysis.collect --source amazon_web --per-category 20   # live amazon.com scraping
+python -m product_search_analysis.collect --source alibaba --per-category 20      # alibaba.com (needs Playwright)
+python -m product_search_analysis.collect --source ptc_computer --per-category 500 # ptc-computer.com.kh
+python -m product_search_analysis.collect --source angkor_meas --per-category 500  # angkormeas.com
+python -m product_search_analysis.collect --source sunsimexco --per-category 500   # sunsimexco.com.kh
 python -m product_search_analysis.collect --dry-run          # download + clean only, no DB writes
 
-# Export the database to data/products_<date_time>.csv, .json and .jsonl (new files every run)
+# Export the database to data/products_<date_time>.csv and .jsonl (new files every run)
 python -m product_search_analysis.export
 python -m product_search_analysis.export --source amazon_web # only one source
 
@@ -52,7 +56,7 @@ product_search_analysis/
 ├── collect.py         pipeline entry point (fetch → clean → save)
 ├── cleaning.py        text normalization, validation, de-duplication
 ├── db.py              PostgreSQL connection and inserts
-├── export.py          database → timestamped CSV/JSON/JSONL in data/
+├── export.py          database → timestamped CSV/JSONL in data/
 └── scraping/
     ├── amazon/        Amazon Reviews 2023 reader (amazon.py) + amazon.com scraper (amazon_scraping.py)
     └── notebookcheck/ crawler (polite, cached) + HTML parser
