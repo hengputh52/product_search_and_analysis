@@ -11,10 +11,14 @@ Then query it from code:
     from product_search_analysis.search import search_boolean
 """
 import pickle
+from decimal import Decimal
 
 from product_search_analysis import db
-from product_search_analysis.config import INDEX_FILE
+from product_search_analysis.config import INDEX_FILE, SEARCH_RESULT_FIELDS
 from product_search_analysis.search.text import tokenize
+
+# The text that is searched. Dense retrieval embeds the same fields (dense.product_text).
+SEARCHED_FIELDS = ["title", "description", "features"]
 
 
 def _document_tokens(title, description, features) -> list[str]:
@@ -28,17 +32,19 @@ def _document_tokens(title, description, features) -> list[str]:
 class Index:
     """An inverted index you can query.
 
-    postings: term -> {product_id: [position, ...]}   (positions enable phrase search)
-    docs:     product_id -> {"title": ..., "source_url": ...}   (to show results)
+    postings: term -> {product_id: [position, ...]}   (positions enable phrase search;
+              the number of positions is also the term frequency used by TF-IDF and BM25)
+    docs:     product_id -> {"title", "source_url", ...config.SEARCH_RESULT_FIELDS}
+              (only to show results; this text is not searched)
     """
 
     def __init__(self):
         self.postings: dict[str, dict[str, list[int]]] = {}
         self.docs: dict[str, dict] = {}
 
-    def add(self, product_id, title, description, features, source_url=None) -> None:
-        """Index one product."""
-        self.docs[product_id] = {"title": title, "source_url": source_url}
+    def add(self, product_id, title, description, features, source_url=None, **info) -> None:
+        """Index one product. `info` = extra fields to show with results (brand, category, ...)."""
+        self.docs[product_id] = {"title": title, "source_url": source_url, **info}
         for position, term in enumerate(_document_tokens(title, description, features)):
             self.postings.setdefault(term, {}).setdefault(product_id, []).append(position)
 
@@ -52,14 +58,26 @@ class Index:
         return self.postings.get(term, {})
 
 
-FIELDS_SQL = "SELECT product_id, title, description, features, source_url FROM products"
+def _plain(value):
+    """PostgreSQL NUMERIC comes back as Decimal; plain floats are easier to use and print."""
+    return float(value) if isinstance(value, Decimal) else value
+
+
+def fields_sql() -> str:
+    """SELECT the searched fields + the result fields (each column once)."""
+    columns = dict.fromkeys(["product_id", *SEARCHED_FIELDS, *SEARCH_RESULT_FIELDS])
+    return f"SELECT {', '.join(columns)} FROM products"
 
 
 def build_index(conn) -> Index:
     """Read every product from the database and build the inverted index."""
     index = Index()
-    for product_id, title, description, features, source_url in conn.execute(FIELDS_SQL):
-        index.add(product_id, title, description, features, source_url)
+    cursor = conn.execute(fields_sql())
+    names = [column.name for column in cursor.description]
+    for values in cursor:
+        row = dict(zip(names, values))
+        info = {field: _plain(row[field]) for field in SEARCH_RESULT_FIELDS if field != "title"}
+        index.add(row["product_id"], row["title"], row["description"], row["features"], **info)
     return index
 
 

@@ -1,0 +1,2047 @@
+{
+  "top_k": 10,
+  "queries": [
+    {
+      "query": "bluetooth speaker",
+      "categories": [
+        "speaker",
+        "audio"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "wireless earbuds",
+      "categories": [
+        "earbuds",
+        "earphones",
+        "headphones"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "noise cancelling headphones",
+      "categories": [
+        "headphones",
+        "earbuds",
+        "earphones"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "gaming laptop",
+      "categories": [
+        "laptop",
+        "computer",
+        "gaming"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "mechanical keyboard",
+      "categories": [
+        "keyboard",
+        "computer-accessories",
+        "gaming"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "power bank 20000mah",
+      "categories": [
+        "powerbank"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "4k smart tv",
+      "categories": [
+        "tv"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "usb c fast charger",
+      "categories": [
+        "charger",
+        "adapter-cable",
+        "wireless-charger"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "iphone case",
+      "categories": [
+        "phone-case"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "ipad case",
+      "categories": [
+        "tablet-case"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "smartwatch",
+      "categories": [
+        "smartwatch",
+        "wearable"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "printer",
+      "categories": [
+        "printer"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "gaming monitor",
+      "categories": [
+        "monitor",
+        "gaming"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "android tablet",
+      "categories": [
+        "tablet"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "mini pc",
+      "categories": [
+        "mini_pc",
+        "desktop",
+        "computer"
+      ],
+      "group": "keyword"
+    },
+    {
+      "query": "graphics card",
+      "categories": [
+        "computer-components",
+        "gaming",
+        "desktop"
+      ],
+      "group": "keyword",
+      "note": "notebookcheck files its desktop GPU reviews under 'desktop'"
+    },
+    {
+      "query": "samsung galaxy phone",
+      "categories": [
+        "smartphone"
+      ],
+      "title_words": [
+        "galaxy"
+      ],
+      "group": "brand"
+    },
+    {
+      "query": "lenovo thinkpad",
+      "categories": [
+        "laptop",
+        "computer"
+      ],
+      "title_words": [
+        "thinkpad"
+      ],
+      "group": "brand"
+    },
+    {
+      "query": "jbl speaker",
+      "categories": [
+        "speaker",
+        "audio"
+      ],
+      "title_words": [
+        "jbl"
+      ],
+      "group": "brand"
+    },
+    {
+      "query": "apple watch band",
+      "categories": [
+        "watch-straps",
+        "smartwatch"
+      ],
+      "title_words": [
+        "watch"
+      ],
+      "group": "brand"
+    },
+    {
+      "query": "anker power bank",
+      "categories": [
+        "powerbank"
+      ],
+      "title_words": [
+        "anker"
+      ],
+      "group": "brand"
+    },
+    {
+      "query": "something to listen to music while running",
+      "categories": [
+        "earbuds",
+        "earphones",
+        "headphones"
+      ],
+      "group": "natural_language"
+    },
+    {
+      "query": "portable battery to charge my phone when traveling",
+      "categories": [
+        "powerbank"
+      ],
+      "group": "natural_language"
+    },
+    {
+      "query": "big screen to watch movies in the living room",
+      "categories": [
+        "tv"
+      ],
+      "group": "natural_language"
+    },
+    {
+      "query": "cheap phone with a big battery",
+      "categories": [
+        "smartphone"
+      ],
+      "group": "natural_language"
+    },
+    {
+      "query": "computer for office work",
+      "categories": [
+        "laptop",
+        "computer",
+        "desktop",
+        "mini_pc"
+      ],
+      "group": "natural_language"
+    },
+    {
+      "query": "fitness tracker that counts steps",
+      "categories": [
+        "smartwatch",
+        "wearable"
+      ],
+      "group": "natural_language"
+    },
+    {
+      "query": "protect my tablet from scratches",
+      "categories": [
+        "tablet-case"
+      ],
+      "group": "natural_language"
+    }
+  ],
+  "summary": {
+    "tfidf": {
+      "P@5": 0.5857142857142856,
+      "P@10": 0.5678571428571428,
+      "MRR": 0.7248015873015873,
+      "nDCG@10": 0.5852038646943428,
+      "ms/query": 0.7114214285885672
+    },
+    "bm25": {
+      "P@5": 0.7642857142857142,
+      "P@10": 0.7357142857142858,
+      "MRR": 0.8839285714285714,
+      "nDCG@10": 0.7582790130282737,
+      "ms/query": 0.659432142843538
+    },
+    "dense": {
+      "P@5": 0.85,
+      "P@10": 0.8428571428571429,
+      "MRR": 0.9047619047619048,
+      "nDCG@10": 0.847941145885504,
+      "ms/query": 6.82086428573062
+    },
+    "hybrid": {
+      "P@5": 0.9071428571428571,
+      "P@10": 0.8571428571428571,
+      "MRR": 0.9047619047619048,
+      "nDCG@10": 0.8708432434257947,
+      "ms/query": 7.819064285756992
+    }
+  },
+  "by_group": {
+    "keyword": {
+      "tfidf": {
+        "P@5": 0.675,
+        "P@10": 0.69375,
+        "MRR": 0.8298611111111112,
+        "nDCG@10": 0.7000004231420173,
+        "ms/query": 0.6385312500185591
+      },
+      "bm25": {
+        "P@5": 0.8125,
+        "P@10": 0.80625,
+        "MRR": 0.921875,
+        "nDCG@10": 0.8132858867091411,
+        "ms/query": 0.593556249981475
+      },
+      "dense": {
+        "P@5": 0.875,
+        "P@10": 0.8625,
+        "MRR": 0.9270833333333334,
+        "nDCG@10": 0.8662438635279053,
+        "ms/query": 6.578262500028131
+      },
+      "hybrid": {
+        "P@5": 0.9375,
+        "P@10": 0.8875000000000001,
+        "MRR": 0.9270833333333334,
+        "nDCG@10": 0.8945923224497536,
+        "ms/query": 7.551712500060148
+      }
+    },
+    "brand": {
+      "tfidf": {
+        "P@5": 0.64,
+        "P@10": 0.48,
+        "MRR": 0.85,
+        "nDCG@10": 0.5918555334370017,
+        "ms/query": 0.6144400000266614
+      },
+      "bm25": {
+        "P@5": 0.8,
+        "P@10": 0.74,
+        "MRR": 0.9,
+        "nDCG@10": 0.797551613460647,
+        "ms/query": 0.5541999998968095
+      },
+      "dense": {
+        "P@5": 0.8400000000000001,
+        "P@10": 0.82,
+        "MRR": 0.9,
+        "nDCG@10": 0.8564434602835578,
+        "ms/query": 6.822340000053373
+      },
+      "hybrid": {
+        "P@5": 0.96,
+        "P@10": 0.9,
+        "MRR": 0.9,
+        "nDCG@10": 0.9413088623205119,
+        "ms/query": 7.4536199999784
+      }
+    },
+    "natural_language": {
+      "tfidf": {
+        "P@5": 0.34285714285714286,
+        "P@10": 0.34285714285714286,
+        "MRR": 0.3952380952380952,
+        "nDCG@10": 0.3180605391406165,
+        "ms/query": 0.9473000000070897
+      },
+      "bm25": {
+        "P@5": 0.6285714285714287,
+        "P@10": 0.5714285714285714,
+        "MRR": 0.7857142857142857,
+        "nDCG@10": 0.6044971585917389,
+        "ms/query": 0.8851714286330596
+      },
+      "dense": {
+        "P@5": 0.7999999999999999,
+        "P@10": 0.8142857142857143,
+        "MRR": 0.8571428571428571,
+        "nDCG@10": 0.8000332809899765,
+        "ms/query": 7.374328571391483
+      },
+      "hybrid": {
+        "P@5": 0.7999999999999999,
+        "P@10": 0.7571428571428571,
+        "MRR": 0.8571428571428571,
+        "nDCG@10": 0.7662270493033759,
+        "ms/query": 8.691185714334486
+      }
+    }
+  },
+  "per_query": [
+    {
+      "method": "tfidf",
+      "query": "bluetooth speaker",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 0.7065632165480471,
+      "ms/query": 0.908399999843823,
+      "top_3": [
+        "Wireless Speaker T&G",
+        "Anitech Speaker Wireless Bluetooth V 102 -BL1808 (V102BL1808)",
+        "Original Tronsmart Mini Speaker"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "wireless earbuds",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.7951657524814091,
+      "ms/query": 0.6970999997975014,
+      "top_3": [
+        "Infinix True Wireless Earbuds EV-E516",
+        "Boult Audio Airbass Propods X TWS Bluetooth Truly Wireless in Ear Earbuds with Mic, 32H Playtime, Fast Charging Type-C, Ipx5 Water Resistant, Touch Controls and Voice Assistant (Red)",
+        "3-in-1 Magnetic Wireless Power Bank 10000mAh Phone Watch Earbuds Charging 15W Wireless 20W Wired Fast Charging LC1"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "noise cancelling headphones",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.6,
+      "MRR": 1.0,
+      "nDCG@10": 0.6683063269107928,
+      "ms/query": 0.5468999997901847,
+      "top_3": [
+        "JBL Live Pro 2 TWS | True Wireless Noise Cancelling",
+        "JVC Wireless Noise Canceling Over Ear Headphones, Bluetooth, Instant paring with NFC Technology - HAS90BNB, Black, One Size",
+        "JBL Tune 670NC | Adaptive ANC (OFF: 10$)"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "gaming laptop",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8415908474314974,
+      "ms/query": 0.7310000000870787,
+      "top_3": [
+        "Microsoft Surface Laptop 13 2026",
+        "Microsoft Surface Laptop 15 Gen 8",
+        "Microsoft Surface Laptop Ultra 2026"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "mechanical keyboard",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.3977000001214037,
+      "top_3": [
+        "Keyboard English Logitech G Pro Mechanical Gaming (920-009396) 2Year",
+        "Keyboard English Prolink GK-6002MS BLU Hot-swappable Mechanical gaming keyboard (1Y)",
+        "Keyboard English Prolink GK-6002MS RED Hot-swappable Mechanical gaming keyboard (1Y)"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "power bank 20000mah",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.8365999997295148,
+      "top_3": [
+        "Tecno 20000mAh 100W Super Fast Charge Power Bank PB05",
+        "Cross-border Wholesale Power Bank Built-in Cable 20000mAh Fast Charging Convenient Large-capacity Mobile Power Source Gift Model",
+        "30000 Power Bank 22.5W Fast Charging High Capacity Powerbank 20000mah 10000 Mah Power Bank"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "4k smart tv",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.7708000002821791,
+      "top_3": [
+        "SAMSUNG UN85TU8000FXZA 85-inch 4K UHD Smart LED TV Bundle with CPS Enhanced Protection Pack",
+        "SAMSUNG 55-Inch Class Crystal UHD TU-8000 Series - 4K HDR Smart TV with Alexa Built-in (UN55TU8000FXZA, 2020 Model)",
+        "SAMSUNG QN32LS03TB The Frame 3.0 32-inch QLED Smart TV Bundle 32-inch The Frame Customizable Bezel - Beige"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "usb c fast charger",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.5,
+      "MRR": 1.0,
+      "nDCG@10": 0.539641393863001,
+      "ms/query": 1.5772000001561537,
+      "top_3": [
+        "Xiaomi Cable Charger USB to C (In Stock)",
+        "Apple Watch Charger (Original)",
+        "USB-C to Dual USB-C Connector"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "iphone case",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8357804136936718,
+      "ms/query": 0.6969000000935921,
+      "top_3": [
+        "Silicon Case iPhone 15 Pro (Original: OFF $20)",
+        "Silicon Case iPhone 12 Pro (Original: OFF $30)",
+        "Silicon Case 15 Pro Max (Original: OFF 20$)"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "ipad case",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.6296000001384527,
+      "top_3": [
+        "G-Case iPad Mini 6|7",
+        "G-Case iPad Air 4|5|6|7",
+        "G-Case iPad Pro 11| 12.9|13″"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "smartwatch",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.08350000007339986,
+      "top_3": [
+        "Xiaomi Watch S5",
+        "Huawei Watch Fit 4 Pro",
+        "Xiaomi Smart Band 10 Pro"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "printer",
+      "group": "keyword",
+      "P@5": 0.4,
+      "P@10": 0.5,
+      "MRR": 0.3333333333333333,
+      "nDCG@10": 0.4066392799050654,
+      "ms/query": 0.08569999999963329,
+      "top_3": [
+        "Cable USB 3.0 AM/BM 5M USB3 A/B 5M (Not support printer)",
+        "Cable Printer BP USB AM/BM 1.8m (2.0) USB3 A/B 1.8M",
+        "Tray for Printer HP OfficeJet Pro 8000 ( CB802A )"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "gaming monitor",
+      "group": "keyword",
+      "P@5": 0.4,
+      "P@10": 0.2,
+      "MRR": 0.5,
+      "nDCG@10": 0.2489083270225946,
+      "ms/query": 0.6474000001617242,
+      "top_3": [
+        "Cable Lenovo Mini-Display Port to VGA Monitor Cable (0A36536)",
+        "Kit - Dell Dual Monitor Stand-MDS19 - SNP",
+        "Samsung 24-inch(60.46cm) FHD Monitor, IPS, 75 Hz, Bezel Less Design, AMD FreeSync, Flicker Free, HDMI, D-sub, (LF24T350FHWXXL, Dark Blue Gray)"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "android tablet",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.914856882358379,
+      "ms/query": 0.5869000001439417,
+      "top_3": [
+        "Apple iPad Air 11 M4 2026",
+        "Google Pixel Tablet",
+        "Lenovo Smart Paper"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "mini pc",
+      "group": "keyword",
+      "P@5": 0.2,
+      "P@10": 0.2,
+      "MRR": 0.3333333333333333,
+      "nDCG@10": 0.17630010660342912,
+      "ms/query": 0.3728000001501641,
+      "top_3": [
+        "G-Case iPad Mini 6|7",
+        "Clear Case OPPO Pad Mini 8-inch",
+        "Framework Desktop Ryzen AI Max"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "graphics card",
+      "group": "keyword",
+      "P@5": 0.0,
+      "P@10": 0.1,
+      "MRR": 0.1111111111111111,
+      "nDCG@10": 0.06625422345438903,
+      "ms/query": 0.6479999997281993,
+      "top_3": [
+        "Desktop Dell Tower ECT1250 Ultra 7-265-16GB-1TB SSD-Integrated Graphics- SD card reader -KB&MS Win11H- 2Y",
+        "Dell Tower ECT1250 Ultra 5-225-16GB-SSD512GB- Integrated Graphics-SD card reader -KB&MS Win11H- 2Y",
+        "Dell Tower ECT1250-Core Ultra 7-265-16GB-SSD1TB-DOS-UHD-No DVD-No SD Card-WI-FI-KB+MS-2Y"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "samsung galaxy phone",
+      "group": "brand",
+      "P@5": 0.2,
+      "P@10": 0.1,
+      "MRR": 0.25,
+      "nDCG@10": 0.09478836436955078,
+      "ms/query": 0.7931999998618267,
+      "top_3": [
+        "Samsung Wireless Charger (In Stock)",
+        "Samsung Ear Phone 3.5 (Original)",
+        "Samsung Galaxy Watch Ultra"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "lenovo thinkpad",
+      "group": "brand",
+      "P@5": 0.6,
+      "P@10": 0.6,
+      "MRR": 1.0,
+      "nDCG@10": 0.6780494608112011,
+      "ms/query": 0.17750000006344635,
+      "top_3": [
+        "Lenovo ThinkPad X13 Gen 7 AMD",
+        "Lenovo ThinkPad P1 Gen 9 21UE000MGE",
+        "Lenovo ThinkPad T14 Gen 7 21WN00H4GE"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "jbl speaker",
+      "group": "brand",
+      "P@5": 0.8,
+      "P@10": 0.4,
+      "MRR": 1.0,
+      "nDCG@10": 0.5637884576902256,
+      "ms/query": 0.5199000001994136,
+      "top_3": [
+        "JBL BooM Box-2 ធានា១ឆ្នាំ",
+        "JBL BooM Box-3 ធានា១ឆ្នាំ",
+        "JBL Partybox Encore Portable Speaker With Mic"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "apple watch band",
+      "group": "brand",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8357804136936718,
+      "ms/query": 0.7276999999703548,
+      "top_3": [
+        "Apple Watch Charger (Original)",
+        "HOCO Wireless charger for Apple watch",
+        "Apple Watch Strap Stainless Steel"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "anker power bank",
+      "group": "brand",
+      "P@5": 0.8,
+      "P@10": 0.5,
+      "MRR": 1.0,
+      "nDCG@10": 0.7868709706203588,
+      "ms/query": 0.8539000000382657,
+      "top_3": [
+        "Anker Zalo Power Bank 10k mAh, 22.5W Cable built",
+        "Anker Zalo Power Bank Cable built 20kmAh, 22.5W",
+        "Anker Power Bank Zalo 45W Cable Built 20k mAh"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "something to listen to music while running",
+      "group": "natural_language",
+      "P@5": 0.6,
+      "P@10": 0.5,
+      "MRR": 0.5,
+      "nDCG@10": 0.45577863618303804,
+      "ms/query": 0.7825000002412708,
+      "top_3": [
+        "Tablet 10 Inch Android 9.0, 2GB+32GB, Quad-Core Processor, 10 inch 1280x800 IPS HD Display, 2MP+ 5MP, Bluetooth, WiFi, GMS 3G Phone Tablets",
+        "Sony Extra Bass Bluetooth Headphones, Best Wireless Sports Earbuds with Mic/Microphone, IPX4 Splashproof Stereo Comfort Gym Running Workout up to 8.5 Hour Battery, Black (International Version)",
+        "Simple Mobile LG Rebel 3 4G LTE Prepaid Smartphone"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "portable battery to charge my phone when traveling",
+      "group": "natural_language",
+      "P@5": 0.0,
+      "P@10": 0.1,
+      "MRR": 0.1,
+      "nDCG@10": 0.06362078819895171,
+      "ms/query": 1.7937000002348213,
+      "top_3": [
+        "External HDD 2TB 3.5 WD My Book Studio II Edition WDH2Q20000S",
+        "External HDD 2TB 3.5 WD My Book Studio ( WD20000H1CS ) 2.0 (Windows/mac - requires Performative)",
+        "External SSD 500GB WD My Passport Red (WDBAGF5000ARD-WESN) 3Y"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "big screen to watch movies in the living room",
+      "group": "natural_language",
+      "P@5": 0.2,
+      "P@10": 0.3,
+      "MRR": 0.5,
+      "nDCG@10": 0.2687374555268953,
+      "ms/query": 1.1297999999442254,
+      "top_3": [
+        "Jelly Case Galaxy Buds Series",
+        "TCL 32\" Class 3-Series HD 720p LED Smart Roku TV - 32S355, Black",
+        "Honor Watch 5 Ultra"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "cheap phone with a big battery",
+      "group": "natural_language",
+      "P@5": 0.4,
+      "P@10": 0.4,
+      "MRR": 0.3333333333333333,
+      "nDCG@10": 0.32824101092639,
+      "ms/query": 1.3293000001795008,
+      "top_3": [
+        "Factory Direct Supply KB08 Wired Arabic Layout Keyboard High Quality Basic PC Office Keyboard New USB Interface Plastic Cheap",
+        "HP Omnibook 5 14-mh0004xx",
+        "XGODY X14 Unlocked Smartphones, 6.52 Inch Large Screen 4G Dual Sim Mobile Phones, Dual 5MP + 256GB Extended Storage Cheap Cell Phones, Android 9.0 OS, 3000mAh Massive Battery, Face Recognition (Black)"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "computer for office work",
+      "group": "natural_language",
+      "P@5": 0.2,
+      "P@10": 0.1,
+      "MRR": 0.3333333333333333,
+      "nDCG@10": 0.11004588314904008,
+      "ms/query": 0.6341999996948289,
+      "top_3": [
+        "Computer Keyboard for PC Laptop Desktop Home Office Typing Compact Slim Design Accessories",
+        "Ergonomic Wireless Keyboard Split Cushioned Wrist Palm Rest Natural Typing Rechargeable Office Keyboard Computer Office",
+        "Lenovo Flex 5 Laptop, 15.6\" Touchscreen, Intel Core i7, 8GB Memory, 256GB SSD, Windows 10 Home"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "fitness tracker that counts steps",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.36039999986314797,
+      "top_3": [
+        "PTron Newly Launched Force X10 Bluetooth Calling Smartwatch with 1.7\" Full Touch Color Display, Real Heart Rate Monitor, SpO2, Watch Faces, 5 Days Runtime, Fitness Trackers & IP68 Waterproof (Pink)",
+        "PTron Newly Launched Force X10 Bluetooth Calling Smartwatch with 1.7\" Full Touch Color Display, Real Heart Rate Monitor, SpO2, Watch Faces, 5 Days Runtime, Fitness Trackers & IP68 Waterproof (Blue)",
+        "PTron Newly Launched Force X10 Bluetooth Calling Smartwatch with 1.7\" Full Touch Display, Real Heart Rate Monitor, SpO2, Watch Faces, 5 Days Runtime, Health/Fitness Trackers & IP68 Waterproof (Black)"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "query": "protect my tablet from scratches",
+      "group": "natural_language",
+      "P@5": 0.0,
+      "P@10": 0.0,
+      "MRR": 0.0,
+      "nDCG@10": 0.0,
+      "ms/query": 0.6011999998918327,
+      "top_3": [
+        "External HDD 2TB 3.5 WD My Book Studio II Edition WDH2Q20000S",
+        "External HDD 2TB 3.5 WD My Book Studio ( WD20000H1CS ) 2.0 (Windows/mac - requires Performative)",
+        "External SSD 500GB WD My Passport Red (WDBAGF5000ARD-WESN) 3Y"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "bluetooth speaker",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.7759944384848244,
+      "ms/query": 0.8466999997835956,
+      "top_3": [
+        "ANCOON Speakers Bluetooth Wireless: 80W(Peak) Loud Speaker with Bass, 20H Playtime, IPX6 Waterproof, Large Jobsite Speakers for Work, Outdoor, Workshop, Garage, Portable Speaker with TWS (Yellow)",
+        "Speaker Razer Leviathan Mini Bluetooth Speaker - NASA Packaging (RZ05-01570100-R3U1)",
+        "OZJ Outdoor Bluetooth Speaker: 80W Peak Powerful Loud Bass Sound, Wireless"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "wireless earbuds",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.6487999999080785,
+      "top_3": [
+        "Infinix True Wireless Earbuds EV-E516",
+        "BLXBUDS G2 Wireless Earbuds - Wireless Bluetooth Headphones with Charging Case | TWS Dual-Stereo Earphones | Bluetooth Earbuds with Microphone for iPhone and Android | Up to 6 Hours Battery Life",
+        "GIEC Wireless Earbuds Bluetooth Earbuds Noise Cancelling Earbuds with Mic True Wireless Earbuds 60H Playtime IP55 Waterproof Earbuds in Ear Headphones Bluetooth Earbuds for Android and iOS White"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "noise cancelling headphones",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.524799999766401,
+      "top_3": [
+        "Soundcore Space Q45 | Long-Lasting ANC (In Stock)",
+        "Soundcore Space 2 | ANC Headphones",
+        "JVC Wireless Noise Canceling Over Ear Headphones, Bluetooth, Instant paring with NFC Technology - HAS90BNB, Black, One Size"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "gaming laptop",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.6,
+      "MRR": 1.0,
+      "nDCG@10": 0.7222954974312066,
+      "ms/query": 0.6619999999202264,
+      "top_3": [
+        "Acer - Nitro 5 15.6\" Laptop - Intel Core i5 --10300H 8GB Memory - NVIDIA GeForce GTX 1650 - 256GB SSD - Obsidian Black",
+        "HP Pavilion Gaming 16 Laptop PC, NVIDIA GeForce GTX 1650, Intel Core i5-10300H, 8GB DDR4 RAM, 512GB PCIe NVMe SSD, 16.1\" Full HD, Windows 10 Home, Backlit Keyboard (16-a0010nr, Shadow Black)",
+        "ASUS - 15.6\" Laptop - AMD Ryzen 7-8GB Memory - NVIDIA GeForce RTX 2060-512GB SSD - Fortress Gray"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "mechanical keyboard",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.3664000000753731,
+      "top_3": [
+        "Fantech MK874V2 Swappable RGB Backlit Red Switch 63 Keys Mechanical Gaming Keyboard 60 Percent Black Mechanical Keyboard",
+        "Keyboard English Prolink GK-6002M BRN Desmodus USB Mechanical Gaming Keyboard (1Y)",
+        "Keyboard English Prolink GK-6002M BLU Desmodus USB Mechanical Gaming Keyboard (1Y)"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "power bank 20000mah",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.7694999999330321,
+      "top_3": [
+        "Tecno 20000mAh 100W Super Fast Charge Power Bank PB05",
+        "30000 Power Bank 22.5W Fast Charging High Capacity Powerbank 20000mah 10000 Mah Power Bank",
+        "WST New Arrival Power Banks PD 70W Fast Charging LED Digital Display High Capacity 20000mah Power Bank Built in Cable for Laptop"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "4k smart tv",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.6588999999621592,
+      "top_3": [
+        "SAMSUNG UN85TU8000FXZA 85-inch 4K UHD Smart LED TV Bundle with CPS Enhanced Protection Pack",
+        "SAMSUNG UN43AU8000FXZA 43 Inch 4K Crystal UHD Smart LED TV Bundle with Premiere Movies Streaming + 37-100 Inch TV Wall Mount + 6-Outlet Surge Adapter + 2X 6FT 4K HDMI 2.0 Cable",
+        "SAMSUNG QN55QN90BA 55 inch Class Neo QLED 4K Smart TV 2022 Bundle with Premium 2 YR CPS Enhanced Protection Pack"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "usb c fast charger",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8268133666517739,
+      "ms/query": 1.5926999999464897,
+      "top_3": [
+        "Original Sam Sung 45W USB-C Super Fast Charging S25 Ultra USB-C PD Fast Charger with Type-C to Type-C Fast Charging Data Cable",
+        "45W GaN USB C Fast Charger Wall Charger Type C PD PPS Power Adapter EU Plug Travel Charger for Mobile Phone",
+        "Original 25W 45W 65W USB-C Fast Charging EU Port with 5A Fast Wall Charger Cable for Samsung Charger S24 S25 S26 Ultra"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "iphone case",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.8,
+      "MRR": 0.5,
+      "nDCG@10": 0.685119869332369,
+      "ms/query": 0.6536000000778586,
+      "top_3": [
+        "iPhone Duo Case –Sand",
+        "Clear Case 15 Series (Original: OFF 20$)",
+        "Clear Case 13 Series (Original: OFF $30)"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "ipad case",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.5817999999635504,
+      "top_3": [
+        "iPad Case for Air4",
+        "iPad Standy Case for iPad Mini 6",
+        "iPad Standy Case for iPad Pro 11|12.9"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "smartwatch",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.07689999983995222,
+      "top_3": [
+        "Fire-Boltt Visionary 1.78\" AMOLED Bluetooth Calling Smartwatch with 368*448 Pixel Resolution 100+ Sports Mode, TWS Connection, Voice Assistance, SPO2 & Heart Rate Monitoring",
+        "Tokdis MX-1 Pro Bluetooth Calling Smartwatch - 1.69” LCD Display, Multiple Watch Faces, Sleep Monitor, Heart & SpO2 Monitoring, Multiple Sports Modes, Water Resistant",
+        "Xiaomi Watch S5"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "printer",
+      "group": "keyword",
+      "P@5": 0.4,
+      "P@10": 0.6,
+      "MRR": 1.0,
+      "nDCG@10": 0.5925846332364243,
+      "ms/query": 0.07520000008298666,
+      "top_3": [
+        "Tray for Printer HP OfficeJet Pro 8000 ( CB802A )",
+        "Cable USB 3.0 AM/BM 5M USB3 A/B 5M (Not support printer)",
+        "Cable Printer AM-BM 1.8m USB 2.0 1112-6FT L=6"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "gaming monitor",
+      "group": "keyword",
+      "P@5": 0.2,
+      "P@10": 0.1,
+      "MRR": 1.0,
+      "nDCG@10": 0.22009176629808017,
+      "ms/query": 0.5908000002818881,
+      "top_3": [
+        "Samsung 24-inch(60.46cm) FHD Monitor, IPS, 75 Hz, Bezel Less Design, AMD FreeSync, Flicker Free, HDMI, D-sub, (LF24T350FHWXXL, Dark Blue Gray)",
+        "Noise Agile 2 Buzz Bluetooth Calling Smart Watch with 1.28\" TFT Display,Dual Button,in-Built Mic & Speaker,AI Voice Assistant, Health Suite,in-Built Games, 100 Watch Faces-(Jet Black)",
+        "Noise ColorFit Pulse Smartwatch with 3.56 cm (1.4\") Full Touch HD Display, SpO2, Heart Rate, Sleep Monitors & 10-Day Battery - Jet Black"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "android tablet",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.5317000000104599,
+      "top_3": [
+        "Tablet Android 10.0, 10 inch Tablets with 32GB Storage (128GB Expansion), 1280x800 IPS,Support Wireless Keyboard and Mouse, Wi-Fi, Bluetooth 4.2, GPS-Black, Good Gift for Mother's Day",
+        "CWOWDEFU Tablet 10 Inch Android 11 Tabletas 3GB RAM 32GB Storage HD Touchscreen Tablets WiFi 6, 6000mAh Type-C, Metal Body (Silver)",
+        "LECTRUS Tablet 10 inch Android 9.0 (GMS Certified), 32GB Storage, Quad Core Processor, 3G Tablet PC with Dual Sim Card Slots and Cameras, IPS HD Touchscreen, WiFi, Bluetooth, GPS, YouTube, Netflix"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "mini pc",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.9363792118010481,
+      "ms/query": 0.33690000009301,
+      "top_3": [
+        "Framework Desktop Ryzen AI Max",
+        "Ninkear M7, (16+512)",
+        "Peladn HA-4, R7 7840HS"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "graphics card",
+      "group": "keyword",
+      "P@5": 0.4,
+      "P@10": 0.3,
+      "MRR": 0.25,
+      "nDCG@10": 0.2532954041105318,
+      "ms/query": 0.5802000000585394,
+      "top_3": [
+        "ASUS Chromebook 17 Thin Laptop, 17.3\" Full HD Display, Intel Celeron N4500, Intel UHD Graphics, 4GB DDR4 32GB eMMC, TWE 64GB Micro SD Card",
+        "Dell Tower ECT1250 Ultra 5-225-16GB-SSD512GB- Integrated Graphics-SD card reader -KB&MS Win11H- 2Y",
+        "Desktop Dell Tower ECT1250 Ultra 7-265-16GB-1TB SSD-Integrated Graphics- SD card reader -KB&MS Win11H- 2Y"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "samsung galaxy phone",
+      "group": "brand",
+      "P@5": 0.4,
+      "P@10": 0.5,
+      "MRR": 1.0,
+      "nDCG@10": 0.5141863642577489,
+      "ms/query": 0.6942999998500454,
+      "top_3": [
+        "Straight Talk Samsung Galaxy S20 5G Cloud Blue 128Gb SM-G981ULBAXAA Sim Card Kit Plus an Installed LK Screen Protector and A Samsung Wireless Charging Pad Bundle",
+        "Samsung Wireless Charger 9W (In Stock)",
+        "Galaxy S24 Clear Case"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "lenovo thinkpad",
+      "group": "brand",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8454256604216017,
+      "ms/query": 0.13619999981528963,
+      "top_3": [
+        "Lenovo ThinkPad P1 Gen 9 21UE000MGE",
+        "Lenovo ThinkPad X13 Gen 7 AMD",
+        "Lenovo ThinkPad T14 Gen 7 21WN00H4GE"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "jbl speaker",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.43409999989307835,
+      "top_3": [
+        "JBL Go 5 - Ultra-portable IP68 waterproof & drop-proof speaker (Black)",
+        "JBL GO 5 | Ultra-Portable Bluetooth SpeakerJBL",
+        "JBL Xtreme 4|Portable Water Resistant Speaker (OFF: 30$)"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "apple watch band",
+      "group": "brand",
+      "P@5": 0.8,
+      "P@10": 0.7,
+      "MRR": 0.5,
+      "nDCG@10": 0.6281460426238844,
+      "ms/query": 0.641399999949499,
+      "top_3": [
+        "COTECi Silicon Sport Band for (All Size)",
+        "RMN Peakform Band for Galaxy Watch Ultra (In Stock)",
+        "Apple Watch Strap Stainless Steel"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "anker power bank",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.8649999999761349,
+      "top_3": [
+        "Anker Power Bank Zalo 45W Cable Built 20k mAh",
+        "Anker Zalo Power Bank Cable built 20kmAh, 22.5W",
+        "Anker Zalo Power Bank 10k mAh, 22.5W Cable built"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "something to listen to music while running",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.7572999998046726,
+      "top_3": [
+        "Sony Extra Bass Bluetooth Headphones, Best Wireless Sports Earbuds with Mic/Microphone, IPX4 Splashproof Stereo Comfort Gym Running Workout up to 8.5 Hour Battery, Black (International Version)",
+        "Bone Conduction Headphones, Ultralight Swimming Headphones IP68 Waterproof Bluetooth 5.0 Open Ear Wireless Sports Headset with MP3 Player & 8G Memory for Swimming Running Cycling Driving Jogging",
+        "Aisizon Air Conduction Headphones H1, Over Ear Sports Wireless Bluetooth Headphones, Open Ear Headphones Wireless Bluetooth for Runing, Gym Workout, Sports"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "portable battery to charge my phone when traveling",
+      "group": "natural_language",
+      "P@5": 0.6,
+      "P@10": 0.4,
+      "MRR": 1.0,
+      "nDCG@10": 0.5473983622993501,
+      "ms/query": 1.8203999998149811,
+      "top_3": [
+        "charmast Portable Charger Built-in Cables, 20000mAh Power Bank 6-Output",
+        "ENERGEA MagPac Pro 35s Hybrid Solid State Qi2 10K mAh",
+        "Portable Charger, 65W Power Bank Fast Charging, USB C Battery Pack With Built in Cable, 4 Outputs Powerbank, Travel Essentials Compatible with iPhone 17 16 15 14 13 iPad MacBook Pro Samsung Dell XPS"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "big screen to watch movies in the living room",
+      "group": "natural_language",
+      "P@5": 0.6,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 0.6848374495230163,
+      "ms/query": 1.0881000002882502,
+      "top_3": [
+        "TCL 32\" Class 3-Series HD 720p LED Smart Roku TV - 32S355, Black",
+        "boAt Xtend Smartwatch with Alexa Built-in, 1.69” HD Display, Multiple Watch Faces, Stress Monitor, Heart & SpO2 Monitoring, 14 Sports Modes, Sleep Monitor, 5 ATM & 7 Days Battery(Pitch Black)",
+        "boAt Xtend Smartwatch with Alexa Built-in, 1.69” HD Display, Multiple Watch Faces, Stress Monitor, Heart & SpO2 Monitoring, 14 Sports Modes, Sleep Monitor, 5 ATM & 7 Days Battery(Charcoal Black)"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "cheap phone with a big battery",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8603818544462508,
+      "ms/query": 1.1032000002160203,
+      "top_3": [
+        "XGODY X14 Unlocked Smartphones, 6.52 Inch Large Screen 4G Dual Sim Mobile Phones, Dual 5MP + 256GB Extended Storage Cheap Cell Phones, Android 9.0 OS, 3000mAh Massive Battery, Face Recognition (Black)",
+        "KXD 6A | Unlocked Cell Phone | 5.5\" Full Screen Display | 8GB ROM | 2500mAh Battery | 8MP Camera | Android Smartphone | US Version | Black",
+        "Easyfone T300 4G Classic Big Button Flip Cell Phone for Seniors | Easy-to-Use | Clear Sound | 1500mAh Battery Long Time Standby | SOS Button w/GPS | Unlocked (T-Mobile&MVNOs) | Charging Dock (Red)"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "computer for office work",
+      "group": "natural_language",
+      "P@5": 0.2,
+      "P@10": 0.1,
+      "MRR": 0.5,
+      "nDCG@10": 0.13886244387355454,
+      "ms/query": 0.5639000000883243,
+      "top_3": [
+        "FXWONTY Wireless Headset, Bluetooth Headset with AI Noise Cancelling Microphone & Charging Base, 50Hrs Bluetooth 5.0 Headphones with USB for PC/Remote Work/Call Center/Online Class/Trucker/Zoom/Skype",
+        "Lenovo Flex 5 Laptop, 15.6\" Touchscreen, Intel Core i7, 8GB Memory, 256GB SSD, Windows 10 Home",
+        "Ergonomic Wireless Keyboard Split Cushioned Wrist Palm Rest Natural Typing Rechargeable Office Keyboard Computer Office"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "fitness tracker that counts steps",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 0.31880000005912734,
+      "top_3": [
+        "PTron Newly Launched Force X10 Bluetooth Calling Smartwatch with 1.7\" Full Touch Color Display, Real Heart Rate Monitor, SpO2, Watch Faces, 5 Days Runtime, Fitness Trackers & IP68 Waterproof (Pink)",
+        "PTron Newly Launched Force X10 Bluetooth Calling Smartwatch with 1.7\" Full Touch Color Display, Real Heart Rate Monitor, SpO2, Watch Faces, 5 Days Runtime, Fitness Trackers & IP68 Waterproof (Blue)",
+        "PTron Newly Launched Force X10 Bluetooth Calling Smartwatch with 1.7\" Full Touch Display, Real Heart Rate Monitor, SpO2, Watch Faces, 5 Days Runtime, Health/Fitness Trackers & IP68 Waterproof (Black)"
+      ]
+    },
+    {
+      "method": "bm25",
+      "query": "protect my tablet from scratches",
+      "group": "natural_language",
+      "P@5": 0.0,
+      "P@10": 0.0,
+      "MRR": 0.0,
+      "nDCG@10": 0.0,
+      "ms/query": 0.544500000160042,
+      "top_3": [
+        "URAO 8 inch Kids Tablet, Android 10 Learning Tablets, Parental Control, Kidoz Installed, Eye Protection, 2GB+32GB, Quad Core Processor, Wi-Fi, Bluetooth, Tablet for Kids with Protective Case, Pink",
+        "Contixo Kids Tablet V9, 7-inch HD, Ages 3-7, Toddler Tablet with Camera, Parental Control - Android 10, 32GB, WiFi, Learning Tablet for Kids, Green",
+        "Contixo V8-4 7” Kids Tablet, 2GB RAM, 16GB Storage, Android 11 GO, Ultimate Learning Tablet for Children with Teacher’s Approved Apps, Kid Proof Protection Case, Red"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "bluetooth speaker",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.7,
+      "MRR": 0.5,
+      "nDCG@10": 0.6156886473955917,
+      "ms/query": 7.305999999971391,
+      "top_3": [
+        "Anitech Speaker Wireless Bluetooth V 102 -BL1808 (V102BL1808)",
+        "JBL GO 5 | Ultra-Portable Bluetooth SpeakerJBL",
+        "HOCO Wireless Speaker HC22"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "wireless earbuds",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.586499999888474,
+      "top_3": [
+        "Push True Wireless In-Ear Earbud - Dark Grey (Renewed)",
+        "Konnek Stein Wireless Earbuds, Bluetooth Ear Buds in-Ear Headband Headphones, 6 Hrs Playtime V5.0 Wireless Headset Sport Earbuds w/Mic for Gym Running Compatible with iPhone Samsung Android, Black",
+        "Wireless Earbuds, WENKEYTWS Bluetooth 5.1 Headphones with Wireless Charging Case, Noise Canceling Mics, 30H Playtime, IPX6 Water Resistance, Hi-Fi Stereo Earphones for iPhone and Android(White)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "noise cancelling headphones",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.9363792118010481,
+      "ms/query": 7.243500000186032,
+      "top_3": [
+        "Silensys E7 PRO Active Noise Cancelling Headphones Bluetooth Headphones with Microphone Deep Bass Wireless Headphones Over Ear, Comfortable Fit, 30H Playtime for TV/Computer/Cellphone, Black",
+        "Myinnov Active Noise Cancelling Wireless Earbuds,Bluetooth 5.3 Headphones with 6 Microphones,Ture Wireless in-Ear Detection Ear Buds, IPX6 Waterproof Stereo Earphones for iPhone&Android",
+        "Soundcore R50i|True Wireless Earbuds"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "gaming laptop",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 6.47079999998823,
+      "top_3": [
+        "Lenovo Flagship Legion Y540 Gaming Laptop 15.6\" FHD IPS 144Hz Display 9th Gen Intel Hexa-Core i7-9750H 16GB RAM 1TB SSD GeForce GTX 1660 Ti 6GB Backlit USB-C Dolby Win10 + HDMI Cable",
+        "Lenovo IdeaPad 3 Gaming Laptop, NVIDIA GeForce RTX 3050 Ti, 15.6\" 120Hz FHD 300Nit, AMD Ryzen5 5600H, Wi-Fi 6, Backlit Keyboard, Type-C, Webcam Privacy Shutter, HDMI Cable (16GB RAM | 512GB PCIe SSD)",
+        "Lenovo Ideapad 3 Gaming Laptop 15.6\" FHD IPS 120Hz Intel Quad-Core i5-10300H (Beats i7-8850H) 8GB DDR4 256GB SSD + 256GB SSD GTX 1650 4GB Backlit KB USB-C Dolby Win10 + HDMI Cable"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "mechanical keyboard",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 5.977199999961158,
+      "top_3": [
+        "110 Keys Ultra-thin Scissor Silent Qwerty Keyboard Wired Slim Office Computer Silent Keyboard for PC Laptop Keyboard for Mac",
+        "Computer Keyboard for PC Laptop Desktop Home Office Typing Compact Slim Design USB Type-C Gaming Adjustable Tilt Numeric Keypad",
+        "Factory Direct Supply KB08 Wired Arabic Layout Keyboard High Quality Basic PC Office Keyboard New USB Interface Plastic Cheap"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "power bank 20000mah",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.914856882358379,
+      "ms/query": 6.466299999829062,
+      "top_3": [
+        "Joko Power Bank A26Q 30000mAh 22.5W PD20W",
+        "30000 Power Bank 22.5W Fast Charging High Capacity Powerbank 20000mah 10000 Mah Power Bank",
+        "Original Samsung Power Bank 10,000mAh (25W)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "4k smart tv",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 6.216199999926175,
+      "top_3": [
+        "Sony XBR55X850D 55-Inch 4K Ultra HD Smart TV (2016 model)",
+        "SAMSUNG 43\" 4K Smart LED TV, 2018 Model",
+        "Samsung UN50NU6950FXZA 50\" Class 4K (2160p) Ultra HD Smart LED TV"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "usb c fast charger",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 0.7503359712972107,
+      "ms/query": 7.4386999999660475,
+      "top_3": [
+        "HWD 65W Fast Charging Universal USB C Charger with Built-in Cable Portable Wall Adapter for Laptop Phone Support PD3.0 UK Plug",
+        "Xiaomi Cable Charger USB to C (In Stock)",
+        "USB-C to 3.5mm USB-C Adaptor (In Stock)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "iphone case",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.6,
+      "MRR": 1.0,
+      "nDCG@10": 0.6114735274236562,
+      "ms/query": 6.484900000032212,
+      "top_3": [
+        "Silicon Case iPhone 12 Pro (Original: OFF $30)",
+        "iPhone Duo Case –Sand",
+        "Nillkin Super Frosted Case iPhone Duo Series"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "ipad case",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.8,
+      "MRR": 0.3333333333333333,
+      "nDCG@10": 0.6410457898283652,
+      "ms/query": 5.951199999799428,
+      "top_3": [
+        "Wholesale Magnetic Detachable Keyboard Case for Apple iPad All Models With Touchpad and Backlit Keys",
+        "Wireless Keyboard Case for iPad 10th 11th, PU Leather Tablet Cover with Built-in Stylus Holder and Foldable Kickstand",
+        "iPad Case for Air4"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "smartwatch",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.8899541168509599,
+      "ms/query": 6.397200000265002,
+      "top_3": [
+        "Noise Pulse Buzz 1.69\" Bluetooth Calling Smart Watch with Call Function, 150 Watch Faces, 60 Sports Modes, Spo2 & Heart Rate Monitoring, Calling Smart Watch for Men & Women - Rose Pink",
+        "Noise Pulse Buzz 1.69\" Bluetooth Calling Smart Watch with Call Function, 150 Watch Faces, 60 Sports Modes, Spo2 & Heart Rate Monitoring, Calling Smart Watch for Men & Women - Jet Black",
+        "Smart Watch, Fitness Tracker with Heart Rate Monitor, Activity Tracker with Inch Touch Screen,Waterproof,Sleep Monitor,Activity Tracker Pedomet black pro"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "printer",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 5.9392000002844725,
+      "top_3": [
+        "Printer HP LaserJet 150NW Color Print only (A4)",
+        "Printer HP LaserJet 150a Only print (Color)(A4)",
+        "Printer HP LaserJet MFP 139fnw (A0NU1A) 4-in-1 B/W A4 Print+Scan+Copy-Wireless/RJ45/USB (110A)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "gaming monitor",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.5,
+      "MRR": 1.0,
+      "nDCG@10": 0.6332196796270029,
+      "ms/query": 6.105500000103348,
+      "top_3": [
+        "Gaming LED Monitor Dell 32\" G3223Q 4K (3840 x 2160)",
+        "Gaming LED Monitor Dell 27\" G2722HS FHD (1920 x 1080)",
+        "Curved Gaming LED Monitor Dell 23.6\" S2422HG FHD (1920x1080)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "android tablet",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 6.375200000093173,
+      "top_3": [
+        "Tablet Android 10.0, 10 inch Tablets with 32GB Storage (128GB Expansion), 1280x800 IPS,Support Wireless Keyboard and Mouse, Wi-Fi, Bluetooth 4.2, GPS-Black, Good Gift for Mother's Day",
+        "SGIN 10 inch Tablet, Android 12 Tablet Quad-Core A133 1.6Ghz Processor 32GB Storage Tableta Computer, 2GB RAM, 8MP Camera, Black",
+        "2023 Newest Android 11.0 Tablet, 2 in 1 Tablet 10 Inch, 5G Dual WIFI Tablet with Keyboard, 64GB ROM + 6GB RAM, 256GB Expand, Quad-Core Processor, 2 Card Slot, 13MP Camera, WIFI/ Bluetooth/OTG - Silver"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "mini pc",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 6.370100000367529,
+      "top_3": [
+        "Minisforum Mars Series MC560",
+        "Minisforum MS-02 Ultra",
+        "GMK NucBox M8"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "graphics card",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8669479898642709,
+      "ms/query": 6.923699999788369,
+      "top_3": [
+        "VGA Card ASUS 12GB ROG-STRIX-RTX3080-O12G-GAMING (90YV0FAC-M0NA00)",
+        "VGA Card ASUS 12GB ROG-STRIX-RTX3080TI-O12G-GAMING (90YV0GT1-M0NA00)",
+        "VGA Card ASUS 10GB ROG-STRIX-RTX3080-O10G-V2-GAMING (90YV0FA7-M0NA00)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "samsung galaxy phone",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.049600000300416,
+      "top_3": [
+        "Samsung Galaxy S8 Active SM-G892U 64GB Meteor Gray T-Mobile Smartphone",
+        "Samsung Galaxy A11 (32GB, 2GB) 6.4\" Dual SIM GSM Unlocked, Global 4G LTE International Model (T-Mobile,AT&T,Metro,Cricket) A115M/DS (64GB SD Bundle, White)",
+        "Samsung Galaxy A37 5G (2026), Unlocked Android Smartphone, 128GB, AMOLED Display, Triple Camera, IP68, Slim Phone, 5000mAh Battery, US Version, US 1 Yr Warranty, Awesome Charcoal"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "lenovo thinkpad",
+      "group": "brand",
+      "P@5": 0.4,
+      "P@10": 0.6,
+      "MRR": 1.0,
+      "nDCG@10": 0.5868720866710773,
+      "ms/query": 6.753500000286294,
+      "top_3": [
+        "Lenovo ThinkPad P1 Gen 9 21UE000MGE",
+        "Lenovo Ideapad 500 80NT00FTUS Laptop (Windows 10, Intel Core i7-6500U, 15.6\" LED-lit Screen, Storage: 1 TB, RAM: 8 GB) Black",
+        "Lenovo IdeaPad Slim 3 14IWC11 Core™ 5 320 16GB-512GB-SSD-M.2 14\"WUXGA UMA Windows 11 H 2Y"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "jbl speaker",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.9266360779006398,
+      "ms/query": 6.542699999954493,
+      "top_3": [
+        "JBL PartyBox 130 | Portable party speaker",
+        "JBL PORTABLE-SPEAKER BUILT-IN-BATTERY 100W IPX4 6H-BATTERY - PARTYBOX-ON-THE-GO-ESSENTIAL/LP",
+        "JBL GO 5 | Ultra-Portable Bluetooth SpeakerJBL"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "apple watch band",
+      "group": "brand",
+      "P@5": 0.8,
+      "P@10": 0.9,
+      "MRR": 0.5,
+      "nDCG@10": 0.7799082337019198,
+      "ms/query": 6.949499999791442,
+      "top_3": [
+        "COTECi Silicon Sport Band for (All Size)",
+        "Apple Watch Strap 40|44mm (AhaStyle)",
+        "Apple Watch Strap 40|44mm (AhaStyle )"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "anker power bank",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 0.9888009031441519,
+      "ms/query": 6.8163999999342195,
+      "top_3": [
+        "Anker Power Bank Laptop Charger 25K mAh (165W )",
+        "Anker Zalo Power Bank 10k mAh, 22.5W Cable built",
+        "Anker Power Bank Zalo 30W Cable Built 20k mAh"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "something to listen to music while running",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 8.15229999989242,
+      "top_3": [
+        "Samsung Gear IconX 2016 Cordfree Fitness Earbuds with Activity Tracker - Black - Discontinued by Manufacturer",
+        "Bose SIE2i Sport Headphones - Purple",
+        "Plantronics BackBeat GO 2 Bluetooth Wireless Stereo Earbuds - Retail Packaging - White"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "portable battery to charge my phone when traveling",
+      "group": "natural_language",
+      "P@5": 0.6,
+      "P@10": 0.6,
+      "MRR": 1.0,
+      "nDCG@10": 0.6523706084452717,
+      "ms/query": 7.5761000002785295,
+      "top_3": [
+        "Portable Charger, 65W Power Bank Fast Charging, USB C Battery Pack With Built in Cable, 4 Outputs Powerbank, Travel Essentials Compatible with iPhone 17 16 15 14 13 iPad MacBook Pro Samsung Dell XPS",
+        "charmast Portable Charger Built-in Cables, 20000mAh Power Bank 6-Output",
+        "DOOGEE Rugged Smartphone(2022), S89 12000mAh Massive Battery Android 12 Rugged Phone Unlocked, 33W Fast Charging, 8GB+128GB IP68 Waterproof Cellphone, Night Vision, Breathing Light, NFC, Dual 4G"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "big screen to watch movies in the living room",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.9305687780632227,
+      "ms/query": 7.942499999899155,
+      "top_3": [
+        "Kodak 126 cm (50 inches) Bezel-Less Design Series 4K Ultra HD Smart Android LED TV 50UHDX7XPROBL (Black)",
+        "Kodak 139 cm (55 inches) 4K Ultra HD Smart LED TV 55CA0909 (Black)",
+        "SAMSUNG 75-Inch Class QLED 4K The Frame LS03B Series, Quantum HDR, Art Mode, Anti-Reflection Matte Display, Slim Fit Wall Mount Included, Smart TV w/ Alexa Built-In (QN75LS03BAFXZA, Latest Model)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "cheap phone with a big battery",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.256200000028912,
+      "top_3": [
+        "Unlocked Smartphone,Mini Smartphone,Portable Phone 2.5inch HD Touchscreen Lightweight Cell Phone,1GB RAM 8GB ROM Mini Smartphone for Students(Pearl White)",
+        "Motorola E4 Cell Phones With Service Plans, 16GB - Grey",
+        "UMIDIGI Cell Phone G1 MAX, Android12 Unlocked Smartphone, Dual Sim 4G LTE Mobile Phone, 128GB/256G Expandable, 6.52\" HD+ Night Mode，5150mAh, GSM Unlocked Phone"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "computer for office work",
+      "group": "natural_language",
+      "P@5": 0.6,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 0.6879509227782193,
+      "ms/query": 7.230100000015227,
+      "top_3": [
+        "Ubuntu 22.04 - 64Bit Linux Operating System - That Powers Millions of PCs and laptops Around The World",
+        "SAMSUNG M5 Series 27-Inch FHD 1080p Smart Monitor & Streaming TV (Tuner-Free), Netflix, HBO, Prime Video, & More, Apple Airplay, Bluetooth, Built-in Speakers, Remote Included (LS27AM500NNXZA)",
+        "Microsoft Surface Book (512 GB, 16 GB RAM, Intel Core i7, NVIDIA GeForce graphics) (Renewed)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "fitness tracker that counts steps",
+      "group": "natural_language",
+      "P@5": 0.8,
+      "P@10": 0.9,
+      "MRR": 0.5,
+      "nDCG@10": 0.7799082337019198,
+      "ms/query": 6.893299999774172,
+      "top_3": [
+        "Smart Watch, Fitness Tracker with Heart Rate Monitor, Activity Tracker with Inch Touch Screen,Waterproof,Sleep Monitor,Activity Tracker Pedomet black pro",
+        "10WeRun Id-116 Bluetooth Smartwatch Wireless Fitness Band for Boys, Girls, Men, Women & Kids",
+        "SHREENOVA ID116 Plus Bluetooth Fitness Smart Watch for Men Women and Kids Activity Tracker (Black)"
+      ]
+    },
+    {
+      "method": "dense",
+      "query": "protect my tablet from scratches",
+      "group": "natural_language",
+      "P@5": 0.6,
+      "P@10": 0.6,
+      "MRR": 0.5,
+      "nDCG@10": 0.5494344239412027,
+      "ms/query": 6.569799999851966,
+      "top_3": [
+        "FLYINGTECH Tablets 7 inch Android Tablet for Kids, 2GB RAM 32GB ROM Toddler Tablet, Dual Camera, WiFi, Google Certificated for Boys Girls with Pink Protective Case 2023",
+        "DEFENDER Case for Google Pixel 11",
+        "DEFENDER Case for Google Pixel 11 Pro"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "bluetooth speaker",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.8,
+      "MRR": 0.3333333333333333,
+      "nDCG@10": 0.6410457898283652,
+      "ms/query": 7.961499999964872,
+      "top_3": [
+        "Anitech Speaker Wireless Bluetooth V 102 -BL1808 (V102BL1808)",
+        "Speaker Razer Leviathan Mini Bluetooth Speaker - NASA Packaging (RZ05-01570100-R3U1)",
+        "ANCOON Speakers Bluetooth Wireless: 80W(Peak) Loud Speaker with Bass, 20H Playtime, IPX6 Waterproof, Large Jobsite Speakers for Work, Outdoor, Workshop, Garage, Portable Speaker with TWS (Yellow)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "wireless earbuds",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.738399999652756,
+      "top_3": [
+        "Wireless Earbuds, Bluetooth 5.3 Headphones 36Hrs Playtime Clear Call Earbuds with LED Power Display Bluetooth Earphones Built-in Mic Stereo Headset for Workout/Home/Office",
+        "WFOELVR Open Ear Wireless Headphones Bluetooth Headphones Wirless Earbuds Bluetooth Earbuds Wireless Earphones Bluetooth Earphones (G37-Black)",
+        "Tempo 30 Wireless Earbuds for Small Ears Women and Men, Black Bluetooth Earbuds for Small Ear Canals, Loud Bass Ear Buds Wireless Bluetooth Earbuds for iPhone, Android Earbuds Wireless Bluetooth Mic"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "noise cancelling headphones",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 8.16739999982019,
+      "top_3": [
+        "Soundcore Space 2 | ANC Headphones",
+        "Sony WH-1000XM6| Wireless ANC (OFF: $45+15$)",
+        "Soundcore Space Q45 | Long-Lasting ANC (In Stock)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "gaming laptop",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.684200000312558,
+      "top_3": [
+        "HP Pavilion Gaming 16 Laptop PC, NVIDIA GeForce GTX 1650, Intel Core i5-10300H, 8GB DDR4 RAM, 512GB PCIe NVMe SSD, 16.1\" Full HD, Windows 10 Home, Backlit Keyboard (16-a0010nr, Shadow Black)",
+        "Acer - Nitro 5 15.6\" Laptop - Intel Core i5 --10300H 8GB Memory - NVIDIA GeForce GTX 1650 - 256GB SSD - Obsidian Black",
+        "Lenovo Flagship Legion Y540 Gaming Laptop 15.6\" FHD IPS 144Hz Display 9th Gen Intel Hexa-Core i7-9750H 16GB RAM 1TB SSD GeForce GTX 1660 Ti 6GB Backlit USB-C Dolby Win10 + HDMI Cable"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "mechanical keyboard",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.824100000107137,
+      "top_3": [
+        "Keyboard English Prolink GK-6002M BRN Desmodus USB Mechanical Gaming Keyboard (1Y)",
+        "Keyboard English Prolink GK-6002M BLU Desmodus USB Mechanical Gaming Keyboard (1Y)",
+        "61 Keys Mechanical Keyboard RGB Backlit Wired Compact Layout Key and Cable Separated for Desk Office"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "power bank 20000mah",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.9266360779006398,
+      "ms/query": 7.806400000390568,
+      "top_3": [
+        "30000 Power Bank 22.5W Fast Charging High Capacity Powerbank 20000mah 10000 Mah Power Bank",
+        "Tecno 20000mAh 100W Super Fast Charge Power Bank PB05",
+        "Cross-border Wholesale Power Bank Built-in Cable 20000mAh Fast Charging Convenient Large-capacity Mobile Power Source Gift Model"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "4k smart tv",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 8.019600000352511,
+      "top_3": [
+        "SAMSUNG 43\" 4K Smart LED TV, 2018 Model",
+        "Samsung UN50NU6950FXZA 50\" Class 4K (2160p) Ultra HD Smart LED TV",
+        "SAMSUNG QN55LS03AAFXZA 55 Inch The Frame QLED 4K Smart TV Bundle 55 inch The Frame Customizable Bezel Modern Brown"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "usb c fast charger",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.9305687780632227,
+      "ms/query": 8.851400000366993,
+      "top_3": [
+        "Original Sam Sung 45W USB-C Super Fast Charging S25 Ultra USB-C PD Fast Charger with Type-C to Type-C Fast Charging Data Cable",
+        "Original 25W 45W 65W USB-C Fast Charging EU Port with 5A Fast Wall Charger Cable for Samsung Charger S24 S25 S26 Ultra",
+        "HWD 65W Fast Charging Universal USB C Charger with Built-in Cable Portable Wall Adapter for Laptop Phone Support PD3.0 UK Plug"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "iphone case",
+      "group": "keyword",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "MRR": 0.5,
+      "nDCG@10": 0.7015099647232445,
+      "ms/query": 6.991199999902165,
+      "top_3": [
+        "iPhone Duo Case –Sand",
+        "Silicon Case iPhone 12 Pro (Original: OFF $30)",
+        "Silicon Case iPhone 15 Pro (Original: OFF $20)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "ipad case",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8643145546088337,
+      "ms/query": 7.176199999776145,
+      "top_3": [
+        "iPad Case for Air4",
+        "iPad Standy Case for iPad Mini 6",
+        "iPad Case for Air4|Pro 11| 12.9 (Rotate 360°)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "smartwatch",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.9363792118010481,
+      "ms/query": 6.515399999898364,
+      "top_3": [
+        "Noise Pulse Buzz 1.69\" Bluetooth Calling Smart Watch with Call Function, 150 Watch Faces, 60 Sports Modes, Spo2 & Heart Rate Monitoring, Calling Smart Watch for Men & Women - Rose Pink",
+        "Noise Pulse Buzz 1.69\" Bluetooth Calling Smart Watch with Call Function, 150 Watch Faces, 60 Sports Modes, Spo2 & Heart Rate Monitoring, Calling Smart Watch for Men & Women - Jet Black",
+        "Tokdis MX-1 Pro Bluetooth Calling Smartwatch - 1.69” LCD Display, Multiple Watch Faces, Sleep Monitor, Heart & SpO2 Monitoring, Multiple Sports Modes, Water Resistant"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "printer",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.933745776545611,
+      "ms/query": 6.529000000227825,
+      "top_3": [
+        "Printer HP PageWide Pro 452dw Print ONLY /W/WiFi/Ink 975 (B/C/Y/M)",
+        "Printer HP LaserJet Enterprise M406DN (Print only)(BW)(A4)(3PZ15A)(Toner 76A or 76X) *No USB CB*(1Y)",
+        "Printer HP LaserJet 150NW Color Print only (A4)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "gaming monitor",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 0.8,
+      "MRR": 1.0,
+      "nDCG@10": 0.8521705090845474,
+      "ms/query": 7.92749999982334,
+      "top_3": [
+        "Samsung 24-inch(60.46cm) FHD Monitor, IPS, 75 Hz, Bezel Less Design, AMD FreeSync, Flicker Free, HDMI, D-sub, (LF24T350FHWXXL, Dark Blue Gray)",
+        "Gaming LED Monitor Dell 27\" G2722HS FHD (1920 x 1080)",
+        "Gaming LED Monitor Dell 32\" G3223Q 4K (3840 x 2160)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "android tablet",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.239700000354787,
+      "top_3": [
+        "Tablet Android 10.0, 10 inch Tablets with 32GB Storage (128GB Expansion), 1280x800 IPS,Support Wireless Keyboard and Mouse, Wi-Fi, Bluetooth 4.2, GPS-Black, Good Gift for Mother's Day",
+        "SGIN 10 inch Tablet, Android 12 Tablet Quad-Core A133 1.6Ghz Processor 32GB Storage Tableta Computer, 2GB RAM, 8MP Camera, Black",
+        "Tablet Android 11 Tablets, 8 inch Tablet 2GB RAM, 32GB ROM Support 512GB Expand Computer Tablet PC, Quad-Core Processor, IPS Touch Screen, 2+5MP Dual Camera, 4300mah Battery, Wifi Tableta (Black)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "mini pc",
+      "group": "keyword",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.03769999972792,
+      "top_3": [
+        "Minisforum Mars Series MC560",
+        "GMK NucBox M8",
+        "Ninkear M7, (16+512)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "graphics card",
+      "group": "keyword",
+      "P@5": 0.6,
+      "P@10": 0.4,
+      "MRR": 1.0,
+      "nDCG@10": 0.5271064966405454,
+      "ms/query": 7.35770000028424,
+      "top_3": [
+        "Gigabyte Radeon RX 9060 XT Gaming OC 16G",
+        "Zotac GeForce RTX 5060 Low Profile",
+        "MSI 15.6\" GE63 Raider RGB-882 Gaming Laptop with Intel Core i7-9750H Processor, NVIDIA GeForce RTX 2060 Graphics, 32GB Memory, 1TB Hard Drive & Windows 10 Operating System"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "samsung galaxy phone",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.271699999819248,
+      "top_3": [
+        "SAMSUNG Galaxy A42 5G Cell Phone, Factory Unlocked Android Smartphone, 128GB, Multi Camera System, 6.6” Infinity-U Super AMOLED Display Screen, Long Batter Life, Expandable Storage, US Version, Black",
+        "Samsung Electronics Store Samsung Galaxy S20 5G Android Smartphone SM-G981U US Version | Fingerprint ID & Facial Recognition | Long-Lasting Battery | for T-Mobile Only (Cosmic Gray, 128GB)",
+        "Samsung Galaxy S22 Ultra 5G, US Version, 128GB, Black - Unlocked (Renewed)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "lenovo thinkpad",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 6.651600000168401,
+      "top_3": [
+        "Lenovo ThinkPad P1 Gen 9 21UE000MGE",
+        "Lenovo ThinkPad X13 Gen 7 AMD",
+        "Lenovo ThinkPad X240 12.5-Inch Laptop (20AL008YUS)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "jbl speaker",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 7.021500000064407,
+      "top_3": [
+        "JBL GO 5 | Ultra-Portable Bluetooth SpeakerJBL",
+        "JBL PartyBox 130 | Portable party speaker",
+        "JBL PartyBox On-the-Go 2"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "apple watch band",
+      "group": "brand",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "MRR": 0.5,
+      "nDCG@10": 0.7065443116025597,
+      "ms/query": 8.100699999886274,
+      "top_3": [
+        "COTECi Silicon Sport Band for (All Size)",
+        "10WeRun Id-116 Bluetooth Smartwatch Wireless Fitness Band for Boys, Girls, Men, Women & Kids",
+        "Apple Watch Strap (Midnight)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "anker power bank",
+      "group": "brand",
+      "P@5": 1.0,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 8.222599999953673,
+      "top_3": [
+        "Anker Zalo Power Bank 10k mAh, 22.5W Cable built",
+        "Anker Power Bank Zalo 45W Cable Built 20k mAh",
+        "Anker Zalo Power Bank Cable built 20kmAh, 22.5W"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "something to listen to music while running",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 9.639700000207085,
+      "top_3": [
+        "Samsung Gear IconX 2016 Cordfree Fitness Earbuds with Activity Tracker - Black - Discontinued by Manufacturer",
+        "Sony Extra Bass Bluetooth Headphones, Best Wireless Sports Earbuds with Mic/Microphone, IPX4 Splashproof Stereo Comfort Gym Running Workout up to 8.5 Hour Battery, Black (International Version)",
+        "Billboard Bluetooth Wireless Folding Headphones With Enhanced Bass, Controls, and Microphone - Black"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "portable battery to charge my phone when traveling",
+      "group": "natural_language",
+      "P@5": 0.8,
+      "P@10": 0.7,
+      "MRR": 1.0,
+      "nDCG@10": 0.7542686714597936,
+      "ms/query": 10.131900000033056,
+      "top_3": [
+        "charmast Portable Charger Built-in Cables, 20000mAh Power Bank 6-Output",
+        "Portable Charger, 65W Power Bank Fast Charging, USB C Battery Pack With Built in Cable, 4 Outputs Powerbank, Travel Essentials Compatible with iPhone 17 16 15 14 13 iPad MacBook Pro Samsung Dell XPS",
+        "Samsung Wireless Dous Charger (OFF-$10)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "big screen to watch movies in the living room",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 9.245600000213017,
+      "top_3": [
+        "SAMSUNG 75-Inch Class QLED 4K The Frame LS03B Series, Quantum HDR, Art Mode, Anti-Reflection Matte Display, Slim Fit Wall Mount Included, Smart TV w/ Alexa Built-In (QN75LS03BAFXZA, Latest Model)",
+        "TCL 32\" Class 3-Series HD 720p LED Smart Roku TV - 32S355, Black",
+        "SAMSUNG M5 Series 27-Inch FHD 1080p Smart Monitor & Streaming TV (Tuner-Free), Netflix, HBO, Prime Video, & More, Apple Airplay, Bluetooth, Built-in Speakers, Remote Included (LS27AM500NNXZA)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "cheap phone with a big battery",
+      "group": "natural_language",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "MRR": 1.0,
+      "nDCG@10": 1.0,
+      "ms/query": 8.590400000230147,
+      "top_3": [
+        "Easyfone T300 4G Classic Big Button Flip Cell Phone for Seniors | Easy-to-Use | Clear Sound | 1500mAh Battery Long Time Standby | SOS Button w/GPS | Unlocked (T-Mobile&MVNOs) | Charging Dock (Red)",
+        "KXD 6A | Unlocked Cell Phone | 5.5\" Full Screen Display | 8GB ROM | 2500mAh Battery | 8MP Camera | Android Smartphone | US Version | Black",
+        "Blackview Unlocked Smartphones, A55 Phone, 6.5\" HD+, 3 SIM Card Slots, 16GB ROM/SD 128GB Expandable Android Phone, 4780mAh Cell Phone, 4G Dual SIM Unlocked Cell Phones, Android 11 OS AT&T Phone"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "computer for office work",
+      "group": "natural_language",
+      "P@5": 0.4,
+      "P@10": 0.4,
+      "MRR": 0.5,
+      "nDCG@10": 0.37566986542073233,
+      "ms/query": 7.630999999946653,
+      "top_3": [
+        "Computer Keyboard for PC Laptop Desktop Home Office Typing Compact Slim Design Accessories",
+        "Lenovo Flex 5 Laptop, 15.6\" Touchscreen, Intel Core i7, 8GB Memory, 256GB SSD, Windows 10 Home",
+        "SAMSUNG M5 Series 27-Inch FHD 1080p Smart Monitor & Streaming TV (Tuner-Free), Netflix, HBO, Prime Video, & More, Apple Airplay, Bluetooth, Built-in Speakers, Remote Included (LS27AM500NNXZA)"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "fitness tracker that counts steps",
+      "group": "natural_language",
+      "P@5": 0.8,
+      "P@10": 0.9,
+      "MRR": 1.0,
+      "nDCG@10": 0.8899541168509599,
+      "ms/query": 7.3894999995900434,
+      "top_3": [
+        "10WeRun Id-116 Bluetooth Smartwatch Wireless Fitness Band for Boys, Girls, Men, Women & Kids",
+        "SHREENOVA ID116 Plus Bluetooth Fitness Smart Watch for Men Women and Kids Activity Tracker (Black)",
+        "Smart Watch, Fitness Tracker with Heart Rate Monitor, Activity Tracker with Inch Touch Screen,Waterproof,Sleep Monitor,Activity Tracker Pedomet black pro"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "query": "protect my tablet from scratches",
+      "group": "natural_language",
+      "P@5": 0.6,
+      "P@10": 0.3,
+      "MRR": 0.5,
+      "nDCG@10": 0.3436966913921454,
+      "ms/query": 8.210200000121404,
+      "top_3": [
+        "URAO 8 inch Kids Tablet, Android 10 Learning Tablets, Parental Control, Kidoz Installed, Eye Protection, 2GB+32GB, Quad Core Processor, Wi-Fi, Bluetooth, Tablet for Kids with Protective Case, Pink",
+        "DEFENDER Case for Google Pixel 11",
+        "DEFENDER Case for Google Pixel 11 Pro"
+      ]
+    }
+  ]
+}
