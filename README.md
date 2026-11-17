@@ -72,12 +72,12 @@ QUERIES = [
     "iphone x",
     # '"power bank" NOT case',
     # "(earbuds OR headphones) AND noise",
-] ```.
+] .
 After that run python .\run_search.py. you may see result as below
 
 For example: 
-``` QUERIES = ["iphone x"] ``` and see output like this
-``` Query: iphone x  ->  25 results
+QUERIES = ["iphone x"]  and see output like this
+Query: iphone x  ->  25 results
   amazon:B00840RRPE            Bose QuietComfort 3 Acoustic Noise Cancelling Headphones, Black
   amazon:B0855NZDMP            iLight Mini Smartphone XS, World's Smallest 10+ Android Phone 4G LTE,
   amazon:B0BF45JLWL            Wireless Earbuds, Bluetooth 5.1 Earphones for Sports, with Wireless Ch
