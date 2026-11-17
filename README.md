@@ -68,15 +68,16 @@ test/                  pytest tests for cleaning and the notebookcheck parser
 ## Processing and Indexing
 
 To test query, go to run_search.py and enter query in 
-QUERIES = [
+``` QUERIES = [
     "iphone x",
     # '"power bank" NOT case',
     # "(earbuds OR headphones) AND noise",
-]. After that run python .\run_search.py. you may see result as below
+]```.
+After that run python .\run_search.py. you may see result as below
 
 For example: 
-QUERIES = ["iphone x"] and see output like this
-Query: iphone x  ->  25 results
+``` QUERIES = ["iphone x"] ``` and see output like this
+``` Query: iphone x  ->  25 results
   amazon:B00840RRPE            Bose QuietComfort 3 Acoustic Noise Cancelling Headphones, Black
   amazon:B0855NZDMP            iLight Mini Smartphone XS, World's Smallest 10+ Android Phone 4G LTE,
   amazon:B0BF45JLWL            Wireless Earbuds, Bluetooth 5.1 Earphones for Sports, with Wireless Ch
@@ -88,7 +89,7 @@ Query: iphone x  ->  25 results
   angkor_meas:14496            Apple Adaptor 5W
   angkor_meas:14542            Leather Case iPhone X (Original: OFF 50%)
   ... and 15 more
-
+```
   
 See [data/README.md](data/README.md) for the export's column definitions and [BUILD_GUIDE.md](BUILD_GUIDE.md) for a step-by-step build walkthrough.
 
