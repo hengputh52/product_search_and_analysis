@@ -65,6 +65,31 @@ data/                  exported datasets (see data/README.md)
 test/                  pytest tests for cleaning and the notebookcheck parser
 ```
 
+## Processing and Indexing
+
+To test query, go to run_search.py and enter query in 
+QUERIES = [
+    "iphone x",
+    # '"power bank" NOT case',
+    # "(earbuds OR headphones) AND noise",
+]. After that run python .\run_search.py. you may see result as below
+
+For example: 
+QUERIES = ["iphone x"] and see output like this
+Query: iphone x  ->  25 results
+  amazon:B00840RRPE            Bose QuietComfort 3 Acoustic Noise Cancelling Headphones, Black
+  amazon:B0855NZDMP            iLight Mini Smartphone XS, World's Smallest 10+ Android Phone 4G LTE,
+  amazon:B0BF45JLWL            Wireless Earbuds, Bluetooth 5.1 Earphones for Sports, with Wireless Ch
+  amazon:B0BVYFCKWW            2 Pack Light^ing Wired Earbuds Headphones Earphone Built-in Microphone
+  amazon:B0C65FBHHL            Apple Headphones Wired iPhone Earbuds with Lightning Connector [Apple
+  amazon:B0C66M4DYY            2 Pack iPhone Earbuds [Apple MFi Certified] Wired in-Ear Stereo Noise
+  amazon:B0C69JB9SM            2 Packs-Apple Earbuds for iPhone Headphones Wired Earphones [Apple MFi
+  amazon_web:B0CJBQBB7F        charmast Portable Charger Built-in Cables, 20000mAh Power Bank 6-Outpu
+  angkor_meas:14496            Apple Adaptor 5W
+  angkor_meas:14542            Leather Case iPhone X (Original: OFF 50%)
+  ... and 15 more
+
+  
 See [data/README.md](data/README.md) for the export's column definitions and [BUILD_GUIDE.md](BUILD_GUIDE.md) for a step-by-step build walkthrough.
 
 ## Data & license notes
