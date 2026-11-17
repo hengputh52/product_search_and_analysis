@@ -7,3 +7,5 @@ requests          # download pages (amazon.com scraper)
 lxml              # fast HTML parser for BeautifulSoup
 playwright        # headless browser for alibaba.com (then: python -m playwright install chromium)
 snowballstemmer   # English stemming for the search index (speakers -> speaker)
+numpy             # vectors for dense retrieval
+sentence-transformers  # dense embeddings (installs PyTorch; first run downloads the model)

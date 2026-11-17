@@ -1,0 +1,240 @@
+[
+  {
+    "query": "bluetooth speaker",
+    "categories": [
+      "speaker",
+      "audio"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "wireless earbuds",
+    "categories": [
+      "earbuds",
+      "earphones",
+      "headphones"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "noise cancelling headphones",
+    "categories": [
+      "headphones",
+      "earbuds",
+      "earphones"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "gaming laptop",
+    "categories": [
+      "laptop",
+      "computer",
+      "gaming"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "mechanical keyboard",
+    "categories": [
+      "keyboard",
+      "computer-accessories",
+      "gaming"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "power bank 20000mah",
+    "categories": [
+      "powerbank"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "4k smart tv",
+    "categories": [
+      "tv"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "usb c fast charger",
+    "categories": [
+      "charger",
+      "adapter-cable",
+      "wireless-charger"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "iphone case",
+    "categories": [
+      "phone-case"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "ipad case",
+    "categories": [
+      "tablet-case"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "smartwatch",
+    "categories": [
+      "smartwatch",
+      "wearable"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "printer",
+    "categories": [
+      "printer"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "gaming monitor",
+    "categories": [
+      "monitor",
+      "gaming"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "android tablet",
+    "categories": [
+      "tablet"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "mini pc",
+    "categories": [
+      "mini_pc",
+      "desktop",
+      "computer"
+    ],
+    "group": "keyword"
+  },
+  {
+    "query": "graphics card",
+    "categories": [
+      "computer-components",
+      "gaming",
+      "desktop"
+    ],
+    "group": "keyword",
+    "note": "notebookcheck files its desktop GPU reviews under 'desktop'"
+  },
+  {
+    "query": "samsung galaxy phone",
+    "categories": [
+      "smartphone"
+    ],
+    "title_words": [
+      "galaxy"
+    ],
+    "group": "brand"
+  },
+  {
+    "query": "lenovo thinkpad",
+    "categories": [
+      "laptop",
+      "computer"
+    ],
+    "title_words": [
+      "thinkpad"
+    ],
+    "group": "brand"
+  },
+  {
+    "query": "jbl speaker",
+    "categories": [
+      "speaker",
+      "audio"
+    ],
+    "title_words": [
+      "jbl"
+    ],
+    "group": "brand"
+  },
+  {
+    "query": "apple watch band",
+    "categories": [
+      "watch-straps",
+      "smartwatch"
+    ],
+    "title_words": [
+      "watch"
+    ],
+    "group": "brand"
+  },
+  {
+    "query": "anker power bank",
+    "categories": [
+      "powerbank"
+    ],
+    "title_words": [
+      "anker"
+    ],
+    "group": "brand"
+  },
+  {
+    "query": "something to listen to music while running",
+    "categories": [
+      "earbuds",
+      "earphones",
+      "headphones"
+    ],
+    "group": "natural_language"
+  },
+  {
+    "query": "portable battery to charge my phone when traveling",
+    "categories": [
+      "powerbank"
+    ],
+    "group": "natural_language"
+  },
+  {
+    "query": "big screen to watch movies in the living room",
+    "categories": [
+      "tv"
+    ],
+    "group": "natural_language"
+  },
+  {
+    "query": "cheap phone with a big battery",
+    "categories": [
+      "smartphone"
+    ],
+    "group": "natural_language"
+  },
+  {
+    "query": "computer for office work",
+    "categories": [
+      "laptop",
+      "computer",
+      "desktop",
+      "mini_pc"
+    ],
+    "group": "natural_language"
+  },
+  {
+    "query": "fitness tracker that counts steps",
+    "categories": [
+      "smartwatch",
+      "wearable"
+    ],
+    "group": "natural_language"
+  },
+  {
+    "query": "protect my tablet from scratches",
+    "categories": [
+      "tablet-case"
+    ],
+    "group": "natural_language"
+  }
+]

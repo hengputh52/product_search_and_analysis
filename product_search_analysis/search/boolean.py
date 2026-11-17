@@ -139,7 +139,7 @@ def _evaluate(node, index) -> set:
 def search_boolean(query: str, index=None) -> list[dict]:
     """Run a Boolean query and return matching products, ordered by product_id.
 
-    Each result is {"product_id": ..., "title": ..., "source_url": ...}.
+    Each result is {"product_id", "title", "source_url", "brand", "category", "price", ...}.
     `index` defaults to the one saved on disk (load_index); pass one in for tests.
     """
     index = index if index is not None else load_index()

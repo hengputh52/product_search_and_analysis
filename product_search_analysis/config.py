@@ -29,6 +29,28 @@ DATA_DIR = ROOT / "data"
 INDEX_DIR = DATA_DIR / "index"            # saved search index (gitignored, rebuilt from the DB)
 INDEX_FILE = INDEX_DIR / "inverted_index.pkl"
 
+# --- ranking & retrieval (search/) ---
+EMBEDDINGS_FILE = INDEX_DIR / "embeddings.npz"   # dense vectors (gitignored, rebuilt from the DB)
+# Small, fast English model (384-dim vectors); runs fine on a laptop CPU.
+# Changing the model? Rebuild the embeddings (python -m product_search_analysis.search.dense).
+DENSE_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+# Some models expect a prefix, e.g. intfloat/e5-*: "query: " / "passage: ". MiniLM needs none.
+DENSE_QUERY_PREFIX = ""
+DENSE_DOCUMENT_PREFIX = ""
+DENSE_BATCH_SIZE = 64          # products encoded at once while building embeddings
+BM25_K1 = 1.5                  # how quickly repeated words stop adding score (term-frequency saturation)
+BM25_B = 0.75                  # how much long product texts are penalised (0 = not at all, 1 = fully)
+RRF_K = 60                     # Reciprocal Rank Fusion constant (60 is the value from the original paper)
+HYBRID_METHODS = ["bm25", "dense"]   # which registered methods "hybrid" fuses (any 2 or more)
+HYBRID_WEIGHTS = None          # None = equal; or one weight per HYBRID_METHODS entry, e.g. [1.0, 2.0]
+HYBRID_CANDIDATES = 100        # top results taken from each method before fusing them
+DEFAULT_TOP_K = 10
+# Product columns returned with every search result (must be columns of the products table).
+# Add one here, rebuild the index, and it appears in retrieve() / search_boolean() results.
+SEARCH_RESULT_FIELDS = ["title", "brand", "category", "price", "rating", "source", "source_url"]
+BENCHMARK_DIR = DATA_DIR / "benchmark"
+BENCHMARK_QUERIES_FILE = ROOT / "product_search_analysis" / "search" / "benchmark_queries.json"
+
 
 AMAZON_BASE_URL = (
     "https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023"
