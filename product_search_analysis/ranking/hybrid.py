@@ -15,7 +15,7 @@ Which methods are fused, and their weights, is set in config (HYBRID_METHODS, HY
 from collections import defaultdict
 
 from product_search_analysis.config import HYBRID_CANDIDATES, RRF_K
-from product_search_analysis.search.rankers import top_scores
+from product_search_analysis.ranking.rankers import top_scores
 
 
 def reciprocal_rank_fusion(rankings: list[list[str]], k: int = RRF_K,

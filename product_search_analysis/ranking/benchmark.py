@@ -20,9 +20,9 @@ Metrics (k = --top-k, default 10), defined in METRICS below; add one with one li
     ms/query    average search time, after one warm-up query per method
 
 Run (needs the index and the embeddings, see retrieve.py):
-    python -m product_search_analysis.search.benchmark                          # every method
-    python -m product_search_analysis.search.benchmark --methods tfidf bm25 --top-k 20
-    python -m product_search_analysis.search.benchmark --queries my_queries.json
+    python -m product_search_analysis.ranking.benchmark                          # every method
+    python -m product_search_analysis.ranking.benchmark --methods tfidf bm25 --top-k 20
+    python -m product_search_analysis.ranking.benchmark --queries my_queries.json
 Results are printed and saved to data/benchmark/benchmark_<date_time>.{md,json}.
 """
 import argparse
@@ -34,7 +34,7 @@ from datetime import datetime
 from pathlib import Path
 
 from product_search_analysis.config import BENCHMARK_DIR, BENCHMARK_QUERIES_FILE, DEFAULT_TOP_K
-from product_search_analysis.search.retrieve import available_methods, get_retriever
+from product_search_analysis.ranking.retrieve import available_methods, get_retriever
 
 
 # ---------- relevance and metrics (pure functions, tested in test/test_search_ranking.py) ----------

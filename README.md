@@ -57,40 +57,90 @@ product_search_analysis/
 ├── cleaning.py        text normalization, validation, de-duplication
 ├── db.py              PostgreSQL connection and inserts
 ├── export.py          database → timestamped CSV/JSONL in data/
+├── search/            tokenizer, inverted index, Boolean queries
+├── ranking/           TF-IDF, BM25, dense, hybrid ranking + benchmark
 └── scraping/
     ├── amazon/        Amazon Reviews 2023 reader (amazon.py) + amazon.com scraper (amazon_scraping.py)
     └── notebookcheck/ crawler (polite, cached) + HTML parser
 db/schema.sql          products table definition
 data/                  exported datasets (see data/README.md)
-test/                  pytest tests for cleaning and the notebookcheck parser
+test/                  pytest tests (cleaning, scrapers, search, ranking)
+run_search.py          try Boolean search (edit the settings, then run it)
+run_ranking.py         try ranked retrieval: tfidf, bm25, dense, hybrid
 ```
 
-## Processing and Indexing
+## Search and ranking
 
-``` To test query, go to run_search.py and enter query in 
-QUERIES = [
-    "iphone x",
-    # '"power bank" NOT case',
-    # "(earbuds OR headphones) AND noise",
-] .
-After that run python .\run_search.py. you may see result as below
+Searching works on an index built from the database. Build it once, and again after collecting new products:
 
-For example: 
-QUERIES = ["iphone x"]  and see output like this
-Query: iphone x  ->  25 results
-  amazon:B00840RRPE            Bose QuietComfort 3 Acoustic Noise Cancelling Headphones, Black
-  amazon:B0855NZDMP            iLight Mini Smartphone XS, World's Smallest 10+ Android Phone 4G LTE,
-  amazon:B0BF45JLWL            Wireless Earbuds, Bluetooth 5.1 Earphones for Sports, with Wireless Ch
-  amazon:B0BVYFCKWW            2 Pack Light^ing Wired Earbuds Headphones Earphone Built-in Microphone
-  amazon:B0C65FBHHL            Apple Headphones Wired iPhone Earbuds with Lightning Connector [Apple
-  amazon:B0C66M4DYY            2 Pack iPhone Earbuds [Apple MFi Certified] Wired in-Ear Stereo Noise
-  amazon:B0C69JB9SM            2 Packs-Apple Earbuds for iPhone Headphones Wired Earphones [Apple MFi
-  amazon_web:B0CJBQBB7F        charmast Portable Charger Built-in Cables, 20000mAh Power Bank 6-Outpu
-  angkor_meas:14496            Apple Adaptor 5W
-  angkor_meas:14542            Leather Case iPhone X (Original: OFF 50%)
-  ... and 15 more
+```bash
+python -m product_search_analysis.search.index      # -> data/index/inverted_index.pkl (git-ignored)
 ```
-  
+
+### Boolean search: `run_search.py`
+
+Exact matching with `AND`, `OR`, `NOT`, `"exact phrase"` and `( )`, e.g. `(speaker OR headphones) AND bluetooth NOT sony`.
+Results are not ranked; they come in product-id order. Open [run_search.py](run_search.py), edit the settings at the top
+and run it (VS Code ▶ or `python run_search.py`):
+
+```python
+QUERIES = ["bluetooth speaker", '"power bank" NOT case']
+MAX_RESULTS = 10
+REBUILD_INDEX = False   # True = rebuild the index from the database first
+```
+
+### Ranked retrieval: `run_ranking.py`
+
+Results come best first, with a score. Queries are plain text. Open [run_ranking.py](run_ranking.py), edit the settings
+and run it (VS Code ▶ or `python run_ranking.py`):
+
+```python
+QUERIES = ["bluetooth speaker", "wireless earbuds for running"]
+METHOD = "bm25"         # "tfidf" | "bm25" | "dense" | "hybrid" | "compare"
+MAX_RESULTS = 10
+REBUILD_INDEX = False
+```
+
+| `METHOD` | What it does |
+|---|---|
+| `tfidf`, `bm25` | Ranked by matching words. |
+| `dense`, `hybrid` | Ranked by meaning (sentence embeddings), so questions like "something to listen to music while running" work. `hybrid` fuses BM25 and dense. Needs the one-time setup below. |
+| `compare` | Runs every available method side by side for each query. |
+
+Example (`METHOD = "bm25"`):
+
+```
+Query: bluetooth speaker
+  bm25:
+    1.   7.5970  [speaker] ANCOON Speakers Bluetooth Wireless: 80W(Peak) Loud Speaker w  (no price)
+    2.   7.3601  [computer-accessories] Speaker Razer Leviathan Mini Bluetooth Speaker - NASA Packag  ($44.00)
+```
+
+### Dense and hybrid setup (once)
+
+```bash
+pip install sentence-transformers                   # large: installs PyTorch
+python -m product_search_analysis.ranking.dense     # -> data/index/embeddings.npz; first run downloads the model
+```
+
+Rebuild the embeddings whenever you rebuild the index, so both cover the same products.
+
+### Command line and benchmark
+
+```bash
+# one query, one method
+python -m product_search_analysis.ranking.retrieve "bluetooth speaker" --method bm25 --top-k 5
+
+# score every method on the 28 test queries in product_search_analysis/ranking/benchmark_queries.json
+python -m product_search_analysis.ranking.benchmark                      # all methods (needs dense)
+python -m product_search_analysis.ranking.benchmark --methods tfidf bm25
+```
+
+The benchmark prints P@5, P@10, MRR and nDCG@10 per method (0 to 1, higher is better) and saves the report to
+`data/benchmark/benchmark_<date_time>.md` and `.json`. Relevance is judged automatically from each product's
+category (plus required title words for some queries), so use the numbers to compare methods, not as exact quality.
+To add a test query, add an entry to `benchmark_queries.json`.
+
 See [data/README.md](data/README.md) for the export's column definitions and [BUILD_GUIDE.md](BUILD_GUIDE.md) for a step-by-step build walkthrough.
 
 ## Data & license notes

@@ -7,7 +7,7 @@ cosine similarity. Unlike TF-IDF/BM25 this can match meaning without shared word
 
 Build the embeddings from the database and save them to disk (takes a few minutes on CPU,
 downloads the model on the first run):
-    python -m product_search_analysis.search.dense
+    python -m product_search_analysis.ranking.dense
 """
 import logging
 
@@ -89,13 +89,13 @@ def load_dense_ranker(path=EMBEDDINGS_FILE, model=None) -> DenseRanker:
     if not path.exists():
         raise FileNotFoundError(
             f"No embeddings at {path}. Build them first: "
-            "python -m product_search_analysis.search.dense"
+            "python -m product_search_analysis.ranking.dense"
         )
     data = np.load(path)                    # only plain arrays inside, no pickle needed
     saved_model = str(data["model"])
     if saved_model != DENSE_MODEL_NAME:
         raise ValueError(f"{path} was built with {saved_model}, but config.DENSE_MODEL_NAME is "
-                         f"{DENSE_MODEL_NAME}. Rebuild: python -m product_search_analysis.search.dense")
+                         f"{DENSE_MODEL_NAME}. Rebuild: python -m product_search_analysis.ranking.dense")
     model = model or load_model()
     return DenseRanker([str(i) for i in data["ids"]], data["vectors"],
                        lambda query: encode(model, [DENSE_QUERY_PREFIX + query])[0])

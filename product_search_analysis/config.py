@@ -29,10 +29,10 @@ DATA_DIR = ROOT / "data"
 INDEX_DIR = DATA_DIR / "index"            # saved search index (gitignored, rebuilt from the DB)
 INDEX_FILE = INDEX_DIR / "inverted_index.pkl"
 
-# --- ranking & retrieval (search/) ---
+# --- ranking & retrieval (ranking/) ---
 EMBEDDINGS_FILE = INDEX_DIR / "embeddings.npz"   # dense vectors (gitignored, rebuilt from the DB)
 # Small, fast English model (384-dim vectors); runs fine on a laptop CPU.
-# Changing the model? Rebuild the embeddings (python -m product_search_analysis.search.dense).
+# Changing the model? Rebuild the embeddings (python -m product_search_analysis.ranking.dense).
 DENSE_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 # Some models expect a prefix, e.g. intfloat/e5-*: "query: " / "passage: ". MiniLM needs none.
 DENSE_QUERY_PREFIX = ""
@@ -49,7 +49,7 @@ DEFAULT_TOP_K = 10
 # Add one here, rebuild the index, and it appears in retrieve() / search_boolean() results.
 SEARCH_RESULT_FIELDS = ["title", "brand", "category", "price", "rating", "source", "source_url"]
 BENCHMARK_DIR = DATA_DIR / "benchmark"
-BENCHMARK_QUERIES_FILE = ROOT / "product_search_analysis" / "search" / "benchmark_queries.json"
+BENCHMARK_QUERIES_FILE = ROOT / "product_search_analysis" / "ranking" / "benchmark_queries.json"
 
 
 AMAZON_BASE_URL = (

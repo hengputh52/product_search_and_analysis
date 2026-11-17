@@ -20,20 +20,20 @@ retrieve(), the command line below and the benchmark then all accept "title_bm25
 A builder gets the Retriever, so it can reuse other methods: retriever.ranker("bm25").
 
 Needs the saved index (python -m product_search_analysis.search.index) and, for
-"dense"/"hybrid", the saved embeddings (python -m product_search_analysis.search.dense).
+"dense"/"hybrid", the saved embeddings (python -m product_search_analysis.ranking.dense).
 
 Try it from the command line:
-    python -m product_search_analysis.search.retrieve "bluetooth speaker" --method bm25 --top-k 5
+    python -m product_search_analysis.ranking.retrieve "bluetooth speaker" --method bm25 --top-k 5
 """
 import argparse
 import logging
 from typing import Callable
 
 from product_search_analysis.config import DEFAULT_TOP_K, HYBRID_METHODS, HYBRID_WEIGHTS
-from product_search_analysis.search.dense import load_dense_ranker
-from product_search_analysis.search.hybrid import HybridRanker
+from product_search_analysis.ranking.dense import load_dense_ranker
+from product_search_analysis.ranking.hybrid import HybridRanker
 from product_search_analysis.search.index import load_index
-from product_search_analysis.search.rankers import BM25Ranker, Ranker, TfidfRanker
+from product_search_analysis.ranking.rankers import BM25Ranker, Ranker, TfidfRanker
 
 log = logging.getLogger(__name__)
 
@@ -79,7 +79,7 @@ class Retriever:
         differ = len(set(self.index.docs) ^ set(dense.ids))
         if differ:
             log.warning("Index and embeddings differ by %d products; rebuild both "
-                        "(search.index and search.dense) after collecting new data.", differ)
+                        "(search.index and ranking.dense) after collecting new data.", differ)
         return dense
 
     def retrieve(self, query: str, method: str = DEFAULT_METHOD, top_k: int = DEFAULT_TOP_K) -> list[dict]:

@@ -7,14 +7,14 @@ import numpy as np
 import pytest
 
 from product_search_analysis.config import CATEGORIES
-from product_search_analysis.search.benchmark import (
+from product_search_analysis.ranking.benchmark import (
     is_relevant, load_queries, ndcg_at, precision_at, reciprocal_rank, run_benchmark,
 )
-from product_search_analysis.search.dense import DenseRanker, product_text
-from product_search_analysis.search.hybrid import HybridRanker, reciprocal_rank_fusion
+from product_search_analysis.ranking.dense import DenseRanker, product_text
+from product_search_analysis.ranking.hybrid import HybridRanker, reciprocal_rank_fusion
 from product_search_analysis.search.index import Index
-from product_search_analysis.search.rankers import BM25Ranker, TfidfRanker
-from product_search_analysis.search.retrieve import _BUILDERS, Retriever, available_methods, register_method
+from product_search_analysis.ranking.rankers import BM25Ranker, TfidfRanker
+from product_search_analysis.ranking.retrieve import _BUILDERS, Retriever, available_methods, register_method
 from product_search_analysis.search.text import tokenize
 
 
