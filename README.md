@@ -67,12 +67,12 @@ test/                  pytest tests for cleaning and the notebookcheck parser
 
 ## Processing and Indexing
 
-To test query, go to run_search.py and enter query in 
-``` QUERIES = [
+``` To test query, go to run_search.py and enter query in 
+QUERIES = [
     "iphone x",
     # '"power bank" NOT case',
     # "(earbuds OR headphones) AND noise",
-]```.
+] ```.
 After that run python .\run_search.py. you may see result as below
 
 For example: 
